@@ -16,7 +16,6 @@ public class LinkManager : MonoBehaviour
     }
     public void OpenPDF()
     {
-        string namePDF = "Marcadores";
-        Resources.Load<TextAsset>("PDFs/" + namePDF);
+        Application.OpenURL("https://drive.google.com/file/d/1X_5CEQ0tawwnq9fvM2lDYQFWDMVLRzjK/view");
     }
 }

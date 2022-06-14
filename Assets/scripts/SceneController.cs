@@ -5,23 +5,53 @@ using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
+    public Animator AudioFade;
+
     public void OpenARScene()
     {
+        StartCoroutine(LoadARScene());
+    }
+    IEnumerator LoadARScene()
+    {
+        AudioFade.SetTrigger("Start");
+        GetComponent<Animator>().SetTrigger("Start");
+        yield return new WaitForSeconds(1f);
         SceneManager.LoadScene("ARScene");
     }
 
     public void OpenRetosScene()
     {
+        StartCoroutine(LoadRetosScene());
+    }
+    IEnumerator LoadRetosScene()
+    {
+        AudioFade.SetTrigger("Start");
+        GetComponent<Animator>().SetTrigger("Start");
+        yield return new WaitForSeconds(1f);
         SceneManager.LoadScene("RetosScene");
     }
 
     public void OpenMainScene()
     {
+        StartCoroutine(LoadMainScene());
+    }
+    IEnumerator LoadMainScene()
+    {
+        AudioFade.SetTrigger("Start");
+        GetComponent<Animator>().SetTrigger("Start");
+        yield return new WaitForSeconds(1f);
         SceneManager.LoadScene("MainScene");
     }
 
     public void OpenQuizScene()
     {
+        StartCoroutine(LoadQuizScene());
+    }
+    IEnumerator LoadQuizScene()
+    {
+        AudioFade.SetTrigger("Start");
+        GetComponent<Animator>().SetTrigger("Start");
+        yield return new WaitForSeconds(1f); 
         SceneManager.LoadScene("QuizScene");
     }
 }
