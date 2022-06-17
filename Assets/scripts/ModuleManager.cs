@@ -18,15 +18,21 @@ public class ModuleManager : MonoBehaviour
     {
         ModuleOption1.GetComponent<Button>().onClick.AddListener(() =>
         {
-            IsModule1 = true; 
+            IsModule1 = true;
+            IsModule2 = false;
+            IsModule3 = false;
             ModuleOption1.GetComponent<Button>().onClick.RemoveAllListeners();
         });
         ModuleOption2.GetComponent<Button>().onClick.AddListener(() => {
             IsModule2 = true;
+            IsModule1 = false;
+            IsModule3 = false;
             ModuleOption2.GetComponent<Button>().onClick.RemoveAllListeners();
         });
         ModuleOption3.GetComponent<Button>().onClick.AddListener(() => {
             IsModule3 = true;
+            IsModule1 = false;
+            IsModule2 = false;
             ModuleOption3.GetComponent<Button>().onClick.RemoveAllListeners();
         });
 

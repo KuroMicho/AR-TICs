@@ -2,35 +2,55 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEngine.UI;
 
 public class QuizManager : MonoBehaviour
 {
-    public TMP_Text Header;
+    public TMP_Text HeaderText;
     public TMP_Text QuestionText;
     public TMP_Text NumberQuestionText;
-    public TMP_Text Counter;
+    public TMP_Text CounterText;
+
+    public TMP_Text PanelHeaderText;
+    public TMP_Text ScoreText;
+    public TMP_Text HighScoreText;
+    public TMP_Text AchievementText;
+
+    public GameObject LayerParticles;
+
+    public TMP_Text Answer1;
+    public TMP_Text Answer2;
+    public TMP_Text Answer3;
+    public TMP_Text Answer4;
+
+    public GameObject Option1;
+    public GameObject Option2;
+
     public AudioSource AudioManager;
     public AudioClip CorrectSound;
     public AudioClip WrongSound;
     public AudioSource CounterSound;
-    public AudioSource CounterSound2;
-    public AudioSource CounterEnd;
-
-    public GameObject Option1;
-    public GameObject Option2;
-    public GameObject Option3;
-    public GameObject Option4;
-    public GameObject SkipButton;
-
 
     const int MinRandom = 1;
     const int MaxRandom = 4;
     int CurrentQuestion = 1;
-    float TimeRemaining;
-    bool CounterIsRunning = false;
     const int LimitQuestion = 3;
+
+    float TimeRemaining;
+    public static bool CounterIsRunning = false;
+    bool IsDone = false;
+    public static bool IsFinished = false;
+
     int Score = 0;
+    int TimePass = 0;
+
+    int HighScore1 = 0;
+    int BestTime1 = 0;
+
+    int HighScore2 = 0;
+    int BestTime2 = 0;
+
+    int HighScore3 = 0;
+    int BestTime3 = 0;
 
     //int Value;
     int QuestionNumber = 0;
@@ -39,37 +59,182 @@ public class QuizManager : MonoBehaviour
 
     void Start()
     {
+        IsFinished = false;
+
         if (ModuleManager.IsModule1)
         {
             LoadModule1();
         }
-
         if (ModuleManager.IsModule2)
         {
             LoadModule2();
         }
-
         if (ModuleManager.IsModule3)
         {
             LoadModule3();
         }
 
+        HighScore1 = PlayerPrefs.GetInt("HighScore1", 0);
+        BestTime1 = PlayerPrefs.GetInt("BestTime1", 0);
+
+        HighScore2 = PlayerPrefs.GetInt("HighScore2", 0);
+        BestTime2 = PlayerPrefs.GetInt("BestTime2", 0);
+
+        HighScore3 = PlayerPrefs.GetInt("HighScore3", 0);
+        BestTime3 = PlayerPrefs.GetInt("BestTime3", 0);
         NumberQuestionText.text = $"{CurrentQuestion}/{LimitQuestion}";
     }
-
-    void SkipQuestion()
+    private void FixedUpdate()
     {
+        if (CurrentQuestion > LimitQuestion)
+        {
+            if (!IsFinished)
+            {
+                StartCoroutine(GameOver());
+                StopCoroutine(GameOver());
+                IsFinished = true;
+            }
+        }
+
+        if (CounterIsRunning)
+        {
+            TimeRemaining -= 1 * Time.deltaTime;
+
+            if (TimeRemaining > 0)
+            {
+                DisplayTime(Mathf.RoundToInt(TimeRemaining));
+            }
+            else
+            {
+                TimeRemaining = 0;
+                DisplayTime(Mathf.RoundToInt(TimeRemaining));
+                IsDone = true;
+                CounterIsRunning = false;
+            }
+
+        }
+
+        if (IsDone)
+        {
+            CheckAnswer(false, 6);
+            IsDone = false;
+        }
+    }
+    IEnumerator GameOver()
+    {
+        GameObject.Find("Canvas").transform.GetChild(3).gameObject.SetActive(true);
+
+        yield return new WaitForSeconds(1.2f);
+
+        CounterIsRunning = false;
         CounterSound.Stop();
+        AudioManager.Stop();
+        ScoreText.text = $"{Score}";
 
         if (ModuleManager.IsModule1)
         {
-            StartCoroutine(LoadQuestions1());
-        };
-        if (ModuleManager.IsModule2) LoadQuestions2();
-        if (ModuleManager.IsModule3) LoadQuestions3();
+            if (Score > HighScore1)
+            {
+                PlayerPrefs.SetInt("HighScore1", Score);
+                HighScoreText.text = $"{Score}";
+                PanelHeaderText.text = "Reto Completado!";
+                AchievementText.enabled = true;
+                AchievementText.GetComponent<Animator>().SetTrigger("Move");
+                LayerParticles.GetComponent<Animator>().SetTrigger("Particles");
+            }
+            else
+            {
+                HighScoreText.text = $"{HighScore1}";
+                PanelHeaderText.text = "Haria esto todo el dia!";
+            }
+        }
 
+        if (ModuleManager.IsModule2)
+        {
+            if (Score > HighScore2)
+            {
+                PlayerPrefs.SetInt("HighScore2", Score);
+                HighScoreText.text = $"{Score}";
+                PanelHeaderText.text = "Bien Hecho!";
+                AchievementText.enabled = true;
+                AchievementText.GetComponent<Animator>().SetTrigger("Move");
+                LayerParticles.GetComponent<Animator>().SetTrigger("Particles");
+            }
+            else
+            {
+                HighScoreText.text = $"{HighScore2}";
+                PanelHeaderText.text = "Una vez mas!";
+            }
+        }
+
+        if (ModuleManager.IsModule3)
+        {
+            if (Score > HighScore3)
+            {
+                PlayerPrefs.SetInt("HighScore3", Score);
+                HighScoreText.text = $"{Score}";
+                PanelHeaderText.text = "SIUUUUUUUUUUU!";
+                AchievementText.enabled = true;
+                AchievementText.GetComponent<Animator>().SetTrigger("Move");
+                LayerParticles.GetComponent<Animator>().SetTrigger("Particles");
+            }
+            else
+            {
+                HighScoreText.text = $"{HighScore3}";
+                PanelHeaderText.text = "De nuevo!";
+            }
+        }
+
+
+        if (ModuleManager.IsModule1)
+        {
+            if (TimePass < BestTime1)
+            {
+                PlayerPrefs.SetInt("BestTime1", TimePass);
+            }
+        }
+
+        if (ModuleManager.IsModule2)
+        {
+            if (TimePass < BestTime2)
+            {
+                PlayerPrefs.SetInt("BestTime2", TimePass);
+            }
+        }
+
+        if (ModuleManager.IsModule3)
+        {
+            if (TimePass < BestTime3)
+            {
+                PlayerPrefs.SetInt("BestTime3", TimePass);
+            }
+        }
+    }
+    private void SkipQuestion()
+    {
+        CounterIsRunning = false;
         CurrentQuestion += 1;
         NumberQuestionText.text = $"{CurrentQuestion}/{LimitQuestion}";
+
+        if (!IsFinished)
+        {
+            if (ModuleManager.IsModule1)
+            {
+                StartCoroutine(LoadQuestions1());
+                StopCoroutine(LoadQuestions1());
+            };
+            if (ModuleManager.IsModule2)
+            {
+                StartCoroutine(LoadQuestions2());
+                StopCoroutine(LoadQuestions2());
+            }
+            if (ModuleManager.IsModule3)
+            {
+                StartCoroutine(LoadQuestions3());
+                StopCoroutine(LoadQuestions3());
+            }
+
+        }
     }
 
     int RandomNumber(int min, int max)
@@ -92,253 +257,309 @@ public class QuizManager : MonoBehaviour
         //    }
 
         //return TempValue;
-
     }
-
-
-    public void CheckAnswer(bool status, int option)
+    public void CheckAnswer(bool status, int answer)
     {
-        if (status == true && option == 1)
+        if (status == true && answer == 1)
         {
             Score++;
+            TimePass += (25 - Mathf.RoundToInt(TimeRemaining));
             AudioManager.PlayOneShot(CorrectSound);
-
-            Option1.GetComponent<Button>().onClick.RemoveAllListeners();
-            Option2.GetComponent<Button>().onClick.RemoveAllListeners();
-            Option3.GetComponent<Button>().onClick.RemoveAllListeners();
-            Option4.GetComponent<Button>().onClick.RemoveAllListeners();
-            SkipButton.GetComponent<Button>().onClick.RemoveAllListeners();
-
             SkipQuestion();
         }
 
-        if (status == true && option == 2)
+        if (status == true && answer == 2)
         {
             Score++;
+            TimePass += (25 - Mathf.RoundToInt(TimeRemaining));
             AudioManager.PlayOneShot(CorrectSound);
-
-            Option1.GetComponent<Button>().onClick.RemoveAllListeners();
-            Option2.GetComponent<Button>().onClick.RemoveAllListeners();
-            Option3.GetComponent<Button>().onClick.RemoveAllListeners();
-            Option4.GetComponent<Button>().onClick.RemoveAllListeners();
-            SkipButton.GetComponent<Button>().onClick.RemoveAllListeners();
-
             SkipQuestion();
         }
 
-        if (status == true && option == 3)
+        if (status == true && answer == 3)
         {
             Score++;
+            TimePass += (25 - Mathf.RoundToInt(TimeRemaining));
             AudioManager.PlayOneShot(CorrectSound);
-
-            Option1.GetComponent<Button>().onClick.RemoveAllListeners();
-            Option2.GetComponent<Button>().onClick.RemoveAllListeners();
-            Option3.GetComponent<Button>().onClick.RemoveAllListeners();
-            Option4.GetComponent<Button>().onClick.RemoveAllListeners();
-            SkipButton.GetComponent<Button>().onClick.RemoveAllListeners();
-
             SkipQuestion();
         }
 
-        if (status == true && option == 4)
+        if (status == true && answer == 4)
         {
             Score++;
+            TimePass += (25 - Mathf.RoundToInt(TimeRemaining));
             AudioManager.PlayOneShot(CorrectSound);
-
-            Option1.GetComponent<Button>().onClick.RemoveAllListeners();
-            Option2.GetComponent<Button>().onClick.RemoveAllListeners();
-            Option3.GetComponent<Button>().onClick.RemoveAllListeners();
-            Option4.GetComponent<Button>().onClick.RemoveAllListeners();
-            SkipButton.GetComponent<Button>().onClick.RemoveAllListeners();
-
             SkipQuestion();
         }
 
-        if (status == false)
+        if (status == false && answer != 6)
         {
+            TimePass += (25 - Mathf.RoundToInt(TimeRemaining));
             AudioManager.PlayOneShot(WrongSound);
-
-            Option1.GetComponent<Button>().onClick.RemoveAllListeners();
-            Option2.GetComponent<Button>().onClick.RemoveAllListeners();
-            Option3.GetComponent<Button>().onClick.RemoveAllListeners();
-            Option4.GetComponent<Button>().onClick.RemoveAllListeners();
-            SkipButton.GetComponent<Button>().onClick.RemoveAllListeners();
-
             SkipQuestion();
         }
 
+        if (status == false && answer == 6)
+        {
+            TimePass += (25 - Mathf.RoundToInt(TimeRemaining));
+            SkipQuestion();
+        }
     }
-
-    IEnumerator LoadQuestions1()
+    public void SelectedOption(int option)
     {
-        QuestionNumber = RandomNumber(MinRandom, MaxRandom);
+        if (ModuleManager.IsModule1)
+        {
+            if (QuestionNumber == 1)
+            {
+                if (option == 1) CheckAnswer(true, 1);
+                if (option == 2) CheckAnswer(false, 2);
+                if (option == 3) CheckAnswer(false, 3);
+                if (option == 4) CheckAnswer(false, 4);
+                if (option == 5) CheckAnswer(false, 5);
+                return;
+            }
+
+            if (QuestionNumber == 2)
+            {
+                if (option == 3) CheckAnswer(false, 3);
+                if (option == 4) CheckAnswer(true, 4);
+                if (option == 5) CheckAnswer(false, 5);
+                return;
+            }
+
+            if (QuestionNumber == 3)
+            {
+                if (option == 1) CheckAnswer(false, 1);
+                if (option == 2) CheckAnswer(false, 2);
+                if (option == 3) CheckAnswer(false, 3);
+                if (option == 4) CheckAnswer(true, 4);
+                if (option == 5) CheckAnswer(false, 5);
+                return;
+            }
+        }
+
+        if (ModuleManager.IsModule2)
+        {
+            if (QuestionNumber == 1)
+            {
+                if (option == 3) CheckAnswer(true, 3);
+                if (option == 4) CheckAnswer(false, 4);
+                if (option == 5) CheckAnswer(false, 5);
+                return;
+            }
+
+            if (QuestionNumber == 2)
+            {
+                if (option == 1) CheckAnswer(false, 1);
+                if (option == 2) CheckAnswer(false, 2);
+                if (option == 3) CheckAnswer(true, 3);
+                if (option == 4) CheckAnswer(false, 4);
+                if (option == 5) CheckAnswer(false, 5);
+                return;
+            }
+
+            if (QuestionNumber == 3)
+            {
+                if (option == 3) CheckAnswer(false, 3);
+                if (option == 4) CheckAnswer(true, 4);
+                if (option == 5) CheckAnswer(false, 5);
+                return;
+            }
+        }
+
+        if (ModuleManager.IsModule3)
+        {
+            if (QuestionNumber == 1)
+            {
+                if (option == 1) CheckAnswer(false, 1);
+                if (option == 2) CheckAnswer(false, 2);
+                if (option == 3) CheckAnswer(false, 3);
+                if (option == 4) CheckAnswer(true, 4);
+                if (option == 5) CheckAnswer(false, 5);
+                return;
+            }
+
+            if (QuestionNumber == 2)
+            {
+                if (option == 3) CheckAnswer(true, 3);
+                if (option == 4) CheckAnswer(false, 4);
+                if (option == 5) CheckAnswer(false, 5);
+                return;
+            }
+
+            if (QuestionNumber == 3)
+            {
+                if (option == 1) CheckAnswer(false, 1);
+                if (option == 2) CheckAnswer(false, 2);
+                if (option == 3) CheckAnswer(true, 3);
+                if (option == 4) CheckAnswer(false, 4);
+                if (option == 5) CheckAnswer(false, 5);
+                return;
+            }
+        }
+    }
+    void TransQuestion()
+    {
+        TimeRemaining = 25f;
+        CounterSound.Stop();
 
         Option1.SetActive(true);
         Option2.SetActive(true);
-        Option3.SetActive(true);
-        Option4.SetActive(true);
+
+        QuestionNumber = RandomNumber(MinRandom, MaxRandom);
 
         AudioManager.GetComponent<AudioSource>().volume = 0.5f;
-        CounterSound.volume = 0.05f;
-
-        yield return new WaitForSeconds(1f);
-
-        TimeRemaining = 25f;
-        CounterIsRunning = true;
-
-        AudioManager.GetComponent<AudioSource>().volume = 0.7f;
-        CounterSound.volume = 0.2f;
-        CounterSound.Play();
-
-        if (QuestionNumber == 1)
-        {
-            QuestionText.text = "¿Cuales son los dos componentes principales de una computadora?";
-            Option1.transform.GetChild(0).GetComponent<TMP_Text>().text = "CPU y MotherBoard.";
-            Option2.transform.GetChild(0).GetComponent<TMP_Text>().text = "Memoria y Monitor.";
-            Option3.transform.GetChild(0).GetComponent<TMP_Text>().text = "CPU y Mouse.";
-            Option4.transform.GetChild(0).GetComponent<TMP_Text>().text = "Se necesita una fuente.";
-
-            Option1.GetComponent<Button>().onClick.AddListener(() => CheckAnswer(true, 1));
-            Option2.GetComponent<Button>().onClick.AddListener(() => CheckAnswer(false, 2));
-            Option3.GetComponent<Button>().onClick.AddListener(() => CheckAnswer(false, 3));
-            Option4.GetComponent<Button>().onClick.AddListener(() => CheckAnswer(false, 4));
-            SkipButton.GetComponent<Button>().onClick.AddListener(() => CheckAnswer(false, 5));
-        }
-
-        if (QuestionNumber == 2)
-        {
-            QuestionText.text = "¿Es correcto afirmar que la Memoria RAM solo almacena datos temporales?";
-            Option1.SetActive(false);
-            Option2.SetActive(false);
-            Option3.transform.GetChild(0).GetComponent<TMP_Text>().text = "Verdadero.";
-            Option4.transform.GetChild(0).GetComponent<TMP_Text>().text = "Falso.";
-            Option3.GetComponent<Button>().onClick.AddListener(() => CheckAnswer(false, 3));
-            Option4.GetComponent<Button>().onClick.AddListener(() => CheckAnswer(true, 4));
-            SkipButton.GetComponent<Button>().onClick.AddListener(() => CheckAnswer(false, 5));
-
-        }
-
-        if (QuestionNumber == 3)
-        {
-            Debug.Log("Here");
-            QuestionText.text = "Seleccione la respuesta correcta 'La funcion principal es " +
-                "transformar los datos que envia el procesador, ademas cuenta con su propia memoria" +
-                " RAM y sistema de ventilacion'.";
-            Option1.transform.GetChild(0).GetComponent<TMP_Text>().text = "CPU.";
-            Option2.transform.GetChild(0).GetComponent<TMP_Text>().text = "Disipador.";
-            Option3.transform.GetChild(0).GetComponent<TMP_Text>().text = "SATA/SSD.";
-            Option4.transform.GetChild(0).GetComponent<TMP_Text>().text = "Tarjeta de Video.";
-
-            Option1.GetComponent<Button>().onClick.AddListener(() => CheckAnswer(false, 1));
-            Option2.GetComponent<Button>().onClick.AddListener(() => CheckAnswer(false, 2));
-            Option3.GetComponent<Button>().onClick.AddListener(() => CheckAnswer(true, 3));
-            Option4.GetComponent<Button>().onClick.AddListener(() => CheckAnswer(false, 4));
-            SkipButton.GetComponent<Button>().onClick.AddListener(() => CheckAnswer(false, 5));
-
-        }
     }
-
-    public void LoadQuestions2()
+    IEnumerator LoadQuestions1()
     {
-        RandomNumber(MinRandom, MaxRandom);
-
-        if (QuestionNumber == 1)
+        if (!IsFinished)
         {
-            QuestionText.text = "Question 1";
-        }
+            yield return new WaitForSeconds(0.2f);
+            TransQuestion();
 
-        if (QuestionNumber == 2)
-        {
-            QuestionText.text = "Question 2";
-        }
+            CounterIsRunning = true;
+            CounterSound.PlayDelayed(0.7f);
 
-        if (QuestionNumber == 3)
-        {
-            QuestionText.text = "Question 3";
-        }
-    }
+            AudioManager.GetComponent<AudioSource>().volume = 0.7f;
 
-    public void LoadQuestions3()
-    {
-        RandomNumber(MinRandom, MaxRandom);
-
-        if (QuestionNumber == 1)
-        {
-            QuestionText.text = "Question 1";
-        }
-
-        if (QuestionNumber == 2)
-        {
-            QuestionText.text = "Question 2";
-        }
-
-        if (QuestionNumber == 3)
-        {
-            QuestionText.text = "Question 3";
-        }
-    }
-
-    private void Update()
-    {
-        if (CurrentQuestion > LimitQuestion)
-        {
-            Option1.GetComponent<Button>().interactable = false;
-            Option2.GetComponent<Button>().interactable = false;
-            Option3.GetComponent<Button>().interactable = false;
-            Option4.GetComponent<Button>().interactable = false;
-            GameObject.Find("Skip").GetComponent<Button>().interactable = false;
-        }
-
-        if (CounterIsRunning)
-        {
-            if (TimeRemaining > 0)
+            if (QuestionNumber == 1)
             {
-                TimeRemaining -= 1 * Time.deltaTime;
-                DisplayTime(Mathf.RoundToInt(TimeRemaining));
+                QuestionText.text = "Cuales son los dos componentes principales de una computadora?";
+                Answer1.text = "CPU y MotherBoard";
+                Answer2.text = "Memoria y Monitor";
+                Answer3.text = "CPU y Mouse";
+                Answer4.text = "Se necesita una fuente";
             }
 
-           
-            if (TimeRemaining < 1)
+            if (QuestionNumber == 2)
             {
-                CounterSound2.Stop();
-                CounterEnd.Play();
-            
-                Debug.Log("Time has run out!");
-                
-                TimeRemaining = 0;
-                DisplayTime(Mathf.RoundToInt(TimeRemaining));
-                CounterIsRunning = false;
+                Option1.SetActive(false);
+                Option2.SetActive(false);
+                QuestionText.text = "Es correcto afirmar que la Memoria RAM solo almacena datos temporales?";
+                Answer3.text = "Verdadero";
+                Answer4.text = "Falso";
+            }
+
+            if (QuestionNumber == 3)
+            {
+                QuestionText.text = "Seleccione la respuesta correcta 'La funcion principal es " +
+                    "transformar los datos que envia el procesador, ademas cuenta con su propia memoria" +
+                    " RAM y sistema de ventilacion'.";
+                Answer1.text = "CPU";
+                Answer2.text = "Disipador";
+                Answer3.text = "SATA/SSD";
+                Answer4.text = "Tarjeta de Video";
             }
         }
-        
+    }
+    IEnumerator LoadQuestions2()
+    {
+        if (!IsFinished)
+        {
+            yield return new WaitForSeconds(1f);
+            TransQuestion();
+
+            CounterIsRunning = true;
+            CounterSound.PlayDelayed(0.7f);
+
+            AudioManager.GetComponent<AudioSource>().volume = 0.7f;
+
+            if (QuestionNumber == 1)
+            {
+                Option1.SetActive(false);
+                Option2.SetActive(false);
+                QuestionText.text = "Segun el enunciado, 'El GPS es un sistema " +
+                    "de Posicionamiento Global, que permite determinar la posicion de la neogeocalizacion de alguien'";
+                Answer3.text = "Verdadero";
+                Answer4.text = "Falso";
+            }
+
+            if (QuestionNumber == 2)
+            {
+                QuestionText.text = "Nombre del periferico que se utiliza para" +
+                    " 'copiar' el contenido de un papel y automaticamente convertirlo en una imagen digital";
+                Answer1.text = "Procesador";
+                Answer2.text = "Sensor de luz";
+                Answer3.text = "Escaner Digital";
+                Answer4.text = "Pantalla Tactil";
+            }
+
+            if (QuestionNumber == 3)
+            {
+                Option1.SetActive(false);
+                Option2.SetActive(false);
+                QuestionText.text = "Esta usted de acuerdo que la Memoria Interna y la Externa (MicroSD)," +
+                    " juntas, superan la velocidad de la memoria RAM?";
+                Answer3.text = "Verdadero";
+                Answer4.text = "Falso";
+            }
+        }
+    }
+
+    IEnumerator LoadQuestions3()
+    {
+        if (!IsFinished)
+        {
+            yield return new WaitForSeconds(1f);
+            TransQuestion();
+
+            CounterIsRunning = true;
+            CounterSound.PlayDelayed(0.7f);
+
+            AudioManager.GetComponent<AudioSource>().volume = 0.7f;
+
+            if (QuestionNumber == 1)
+            {
+                QuestionText.text = "Revoluciones industriales que se han dado en la humanidad?";
+                Answer1.text = "Primera y Segunda";
+                Answer2.text = "Tercera";
+                Answer3.text = "Revolucion Informatica";
+                Answer4.text = "Todas las anteriores";
+            }
+
+            if (QuestionNumber == 2)
+            {
+                Option1.SetActive(false);
+                Option2.SetActive(false);
+                QuestionText.text = "La realidad aumentada inserta informacion digital en el mundo real?";
+                Answer3.text = "Verdadero";
+                Answer4.text = "Falso";
+            }
+
+            if (QuestionNumber == 3)
+            {
+                QuestionText.text = "Criptomoneda es:";
+                Answer1.text = "Dinero";
+                Answer2.text = "Criptografia";
+                Answer3.text = "Moneda digital";
+                Answer4.text = "App Descentralizada";
+            }
+        }
     }
 
     void DisplayTime(int CurrentTime)
     {
-        if (CurrentTime >= 1 && CurrentTime <= 9)
-        {
-            CounterSound.Stop();
-            CounterSound2.Play();
-        }
-
-        Counter.text = $"{CurrentTime}";
+        CounterText.text = $"{CurrentTime}";
     }
 
     void LoadModule1()
     {
-        Header.text = "Ordenadores";
+        HeaderText.text = "Ordenadores";
         StartCoroutine(LoadQuestions1());
+        StopCoroutine(LoadQuestions1());
     }
 
     void LoadModule2()
     {
-        Header.text = "Moviles";
-        LoadQuestions2();
+        HeaderText.text = "Moviles";
+        StartCoroutine(LoadQuestions2());
+        StopCoroutine(LoadQuestions2());
     }
 
     void LoadModule3()
     {
-        Header.text = "TIC 4.0";
-        LoadQuestions3();
+        HeaderText.text = "TIC 4.0";
+        StartCoroutine(LoadQuestions3());
+        StopCoroutine(LoadQuestions3());
     }
 }
