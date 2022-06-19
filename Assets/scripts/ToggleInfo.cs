@@ -11,10 +11,13 @@ public class ToggleInfo : MonoBehaviour
         if (IsOn)
         {
             gameObject.SetActive(false);
+            transform.parent.parent.GetChild(0).gameObject.SetActive(true);
             IsOn = false;
-        } else
+        }
+        else
         {
             gameObject.SetActive(true);
+            transform.parent.parent.GetChild(0).gameObject.SetActive(false);
             IsOn = true;
         }
     }

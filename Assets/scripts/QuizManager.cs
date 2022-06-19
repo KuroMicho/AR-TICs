@@ -30,6 +30,11 @@ public class QuizManager : MonoBehaviour
     public AudioClip WrongSound;
     public AudioSource CounterSound;
 
+    public AudioSource Notifier;
+    public AudioClip[] WinnerSound;
+    public AudioClip[] LoseSound;
+    int Notification;
+
     const int MinRandom = 1;
     const int MaxRandom = 4;
     int CurrentQuestion = 1;
@@ -55,6 +60,7 @@ public class QuizManager : MonoBehaviour
     //int Value;
     int QuestionNumber = 0;
     int TempValue = 0;
+
     //List<int> Lista = new List<int>() { 1, 2, 3 };
 
     void Start()
@@ -75,15 +81,16 @@ public class QuizManager : MonoBehaviour
         }
 
         HighScore1 = PlayerPrefs.GetInt("HighScore1", 0);
-        BestTime1 = PlayerPrefs.GetInt("BestTime1", 0);
+        BestTime1 = PlayerPrefs.GetInt("BestTime1", 75);
 
         HighScore2 = PlayerPrefs.GetInt("HighScore2", 0);
-        BestTime2 = PlayerPrefs.GetInt("BestTime2", 0);
+        BestTime2 = PlayerPrefs.GetInt("BestTime2", 75);
 
         HighScore3 = PlayerPrefs.GetInt("HighScore3", 0);
-        BestTime3 = PlayerPrefs.GetInt("BestTime3", 0);
+        BestTime3 = PlayerPrefs.GetInt("BestTime3", 75);
         NumberQuestionText.text = $"{CurrentQuestion}/{LimitQuestion}";
     }
+
     private void FixedUpdate()
     {
         if (CurrentQuestion > LimitQuestion)
@@ -111,7 +118,6 @@ public class QuizManager : MonoBehaviour
                 IsDone = true;
                 CounterIsRunning = false;
             }
-
         }
 
         if (IsDone)
@@ -120,6 +126,7 @@ public class QuizManager : MonoBehaviour
             IsDone = false;
         }
     }
+
     IEnumerator GameOver()
     {
         GameObject.Find("Canvas").transform.GetChild(3).gameObject.SetActive(true);
@@ -135,6 +142,9 @@ public class QuizManager : MonoBehaviour
         {
             if (Score > HighScore1)
             {
+                Notification = Mathf.RoundToInt(Random.Range(0, 3));
+                Notifier.PlayOneShot(WinnerSound[Notification]);
+
                 PlayerPrefs.SetInt("HighScore1", Score);
                 HighScoreText.text = $"{Score}";
                 PanelHeaderText.text = "Reto Completado!";
@@ -144,6 +154,9 @@ public class QuizManager : MonoBehaviour
             }
             else
             {
+                Notification = Mathf.RoundToInt(Random.Range(0, 2));
+                Notifier.PlayOneShot(LoseSound[Notification]);
+
                 HighScoreText.text = $"{HighScore1}";
                 PanelHeaderText.text = "Haria esto todo el dia!";
             }
@@ -153,17 +166,23 @@ public class QuizManager : MonoBehaviour
         {
             if (Score > HighScore2)
             {
+                Notification = Mathf.RoundToInt(Random.Range(0, 3));
+                Notifier.PlayOneShot(WinnerSound[Notification]);
+
                 PlayerPrefs.SetInt("HighScore2", Score);
                 HighScoreText.text = $"{Score}";
-                PanelHeaderText.text = "Bien Hecho!";
+                PanelHeaderText.text = "Tutorial Completado!";
                 AchievementText.enabled = true;
                 AchievementText.GetComponent<Animator>().SetTrigger("Move");
                 LayerParticles.GetComponent<Animator>().SetTrigger("Particles");
             }
             else
             {
+                Notification = Mathf.RoundToInt(Random.Range(0, 2));
+                Notifier.PlayOneShot(LoseSound[Notification]);
+
                 HighScoreText.text = $"{HighScore2}";
-                PanelHeaderText.text = "Una vez mas!";
+                PanelHeaderText.text = "La tercera es la vencida!";
             }
         }
 
@@ -171,20 +190,25 @@ public class QuizManager : MonoBehaviour
         {
             if (Score > HighScore3)
             {
+                Notification = Mathf.RoundToInt(Random.Range(0, 3));
+                Notifier.PlayOneShot(WinnerSound[Notification]);
+
                 PlayerPrefs.SetInt("HighScore3", Score);
                 HighScoreText.text = $"{Score}";
-                PanelHeaderText.text = "SIUUUUUUUUUUU!";
+                PanelHeaderText.text = "Siuuuuuuuuuuuuu!";
                 AchievementText.enabled = true;
                 AchievementText.GetComponent<Animator>().SetTrigger("Move");
                 LayerParticles.GetComponent<Animator>().SetTrigger("Particles");
             }
             else
             {
+                Notification = Mathf.RoundToInt(Random.Range(0, 2));
+                Notifier.PlayOneShot(LoseSound[Notification]);
+
                 HighScoreText.text = $"{HighScore3}";
-                PanelHeaderText.text = "De nuevo!";
+                PanelHeaderText.text = "Aqui vamos de nuevo!";
             }
         }
-
 
         if (ModuleManager.IsModule1)
         {
@@ -210,6 +234,7 @@ public class QuizManager : MonoBehaviour
             }
         }
     }
+
     private void SkipQuestion()
     {
         CounterIsRunning = false;
@@ -222,7 +247,8 @@ public class QuizManager : MonoBehaviour
             {
                 StartCoroutine(LoadQuestions1());
                 StopCoroutine(LoadQuestions1());
-            };
+            }
+            ;
             if (ModuleManager.IsModule2)
             {
                 StartCoroutine(LoadQuestions2());
@@ -233,7 +259,6 @@ public class QuizManager : MonoBehaviour
                 StartCoroutine(LoadQuestions3());
                 StopCoroutine(LoadQuestions3());
             }
-
         }
     }
 
@@ -247,10 +272,10 @@ public class QuizManager : MonoBehaviour
         //for (int i =0; i < 10; i ++)
         //{
         //   Value = Random.Range(min, max); // 1
-        //    
+        //
         //    if(Lista.Contains(Value)) // {1,2,3} contains 1
         //    {
-        //        Lista.Remove(Value); // {2,3}   
+        //        Lista.Remove(Value); // {2,3}
         //        TempValue = Value;
         //        break;
         //    }
@@ -258,6 +283,7 @@ public class QuizManager : MonoBehaviour
 
         //return TempValue;
     }
+
     public void CheckAnswer(bool status, int answer)
     {
         if (status == true && answer == 1)
@@ -305,35 +331,49 @@ public class QuizManager : MonoBehaviour
             SkipQuestion();
         }
     }
+
     public void SelectedOption(int option)
     {
         if (ModuleManager.IsModule1)
         {
             if (QuestionNumber == 1)
             {
-                if (option == 1) CheckAnswer(true, 1);
-                if (option == 2) CheckAnswer(false, 2);
-                if (option == 3) CheckAnswer(false, 3);
-                if (option == 4) CheckAnswer(false, 4);
-                if (option == 5) CheckAnswer(false, 5);
+                if (option == 1)
+                    CheckAnswer(true, 1);
+                if (option == 2)
+                    CheckAnswer(false, 2);
+                if (option == 3)
+                    CheckAnswer(false, 3);
+                if (option == 4)
+                    CheckAnswer(false, 4);
+                if (option == 5)
+                    CheckAnswer(false, 5);
                 return;
             }
 
             if (QuestionNumber == 2)
             {
-                if (option == 3) CheckAnswer(false, 3);
-                if (option == 4) CheckAnswer(true, 4);
-                if (option == 5) CheckAnswer(false, 5);
+                if (option == 3)
+                    CheckAnswer(false, 3);
+                if (option == 4)
+                    CheckAnswer(true, 4);
+                if (option == 5)
+                    CheckAnswer(false, 5);
                 return;
             }
 
             if (QuestionNumber == 3)
             {
-                if (option == 1) CheckAnswer(false, 1);
-                if (option == 2) CheckAnswer(false, 2);
-                if (option == 3) CheckAnswer(false, 3);
-                if (option == 4) CheckAnswer(true, 4);
-                if (option == 5) CheckAnswer(false, 5);
+                if (option == 1)
+                    CheckAnswer(false, 1);
+                if (option == 2)
+                    CheckAnswer(false, 2);
+                if (option == 3)
+                    CheckAnswer(false, 3);
+                if (option == 4)
+                    CheckAnswer(true, 4);
+                if (option == 5)
+                    CheckAnswer(false, 5);
                 return;
             }
         }
@@ -342,27 +382,38 @@ public class QuizManager : MonoBehaviour
         {
             if (QuestionNumber == 1)
             {
-                if (option == 3) CheckAnswer(true, 3);
-                if (option == 4) CheckAnswer(false, 4);
-                if (option == 5) CheckAnswer(false, 5);
+                if (option == 3)
+                    CheckAnswer(true, 3);
+                if (option == 4)
+                    CheckAnswer(false, 4);
+                if (option == 5)
+                    CheckAnswer(false, 5);
                 return;
             }
 
             if (QuestionNumber == 2)
             {
-                if (option == 1) CheckAnswer(false, 1);
-                if (option == 2) CheckAnswer(false, 2);
-                if (option == 3) CheckAnswer(true, 3);
-                if (option == 4) CheckAnswer(false, 4);
-                if (option == 5) CheckAnswer(false, 5);
+                if (option == 1)
+                    CheckAnswer(false, 1);
+                if (option == 2)
+                    CheckAnswer(false, 2);
+                if (option == 3)
+                    CheckAnswer(true, 3);
+                if (option == 4)
+                    CheckAnswer(false, 4);
+                if (option == 5)
+                    CheckAnswer(false, 5);
                 return;
             }
 
             if (QuestionNumber == 3)
             {
-                if (option == 3) CheckAnswer(false, 3);
-                if (option == 4) CheckAnswer(true, 4);
-                if (option == 5) CheckAnswer(false, 5);
+                if (option == 3)
+                    CheckAnswer(false, 3);
+                if (option == 4)
+                    CheckAnswer(true, 4);
+                if (option == 5)
+                    CheckAnswer(false, 5);
                 return;
             }
         }
@@ -371,33 +422,47 @@ public class QuizManager : MonoBehaviour
         {
             if (QuestionNumber == 1)
             {
-                if (option == 1) CheckAnswer(false, 1);
-                if (option == 2) CheckAnswer(false, 2);
-                if (option == 3) CheckAnswer(false, 3);
-                if (option == 4) CheckAnswer(true, 4);
-                if (option == 5) CheckAnswer(false, 5);
+                if (option == 1)
+                    CheckAnswer(false, 1);
+                if (option == 2)
+                    CheckAnswer(false, 2);
+                if (option == 3)
+                    CheckAnswer(false, 3);
+                if (option == 4)
+                    CheckAnswer(true, 4);
+                if (option == 5)
+                    CheckAnswer(false, 5);
                 return;
             }
 
             if (QuestionNumber == 2)
             {
-                if (option == 3) CheckAnswer(true, 3);
-                if (option == 4) CheckAnswer(false, 4);
-                if (option == 5) CheckAnswer(false, 5);
+                if (option == 3)
+                    CheckAnswer(true, 3);
+                if (option == 4)
+                    CheckAnswer(false, 4);
+                if (option == 5)
+                    CheckAnswer(false, 5);
                 return;
             }
 
             if (QuestionNumber == 3)
             {
-                if (option == 1) CheckAnswer(false, 1);
-                if (option == 2) CheckAnswer(false, 2);
-                if (option == 3) CheckAnswer(true, 3);
-                if (option == 4) CheckAnswer(false, 4);
-                if (option == 5) CheckAnswer(false, 5);
+                if (option == 1)
+                    CheckAnswer(false, 1);
+                if (option == 2)
+                    CheckAnswer(false, 2);
+                if (option == 3)
+                    CheckAnswer(true, 3);
+                if (option == 4)
+                    CheckAnswer(false, 4);
+                if (option == 5)
+                    CheckAnswer(false, 5);
                 return;
             }
         }
     }
+
     void TransQuestion()
     {
         TimeRemaining = 25f;
@@ -410,6 +475,7 @@ public class QuizManager : MonoBehaviour
 
         AudioManager.GetComponent<AudioSource>().volume = 0.5f;
     }
+
     IEnumerator LoadQuestions1()
     {
         if (!IsFinished)
@@ -424,7 +490,8 @@ public class QuizManager : MonoBehaviour
 
             if (QuestionNumber == 1)
             {
-                QuestionText.text = "Cuales son los dos componentes principales de una computadora?";
+                QuestionText.text =
+                    "Cuales son los dos componentes principales de una computadora?";
                 Answer1.text = "CPU y MotherBoard";
                 Answer2.text = "Memoria y Monitor";
                 Answer3.text = "CPU y Mouse";
@@ -435,16 +502,18 @@ public class QuizManager : MonoBehaviour
             {
                 Option1.SetActive(false);
                 Option2.SetActive(false);
-                QuestionText.text = "Es correcto afirmar que la Memoria RAM solo almacena datos temporales?";
+                QuestionText.text =
+                    "Es correcto afirmar que la Memoria RAM solo almacena datos temporales?";
                 Answer3.text = "Verdadero";
                 Answer4.text = "Falso";
             }
 
             if (QuestionNumber == 3)
             {
-                QuestionText.text = "Seleccione la respuesta correcta 'La funcion principal es " +
-                    "transformar los datos que envia el procesador, ademas cuenta con su propia memoria" +
-                    " RAM y sistema de ventilacion'.";
+                QuestionText.text =
+                    "Seleccione la respuesta correcta 'La funcion principal es "
+                    + "transformar los datos que envia el procesador, ademas cuenta con su propia memoria"
+                    + " RAM y sistema de ventilacion'.";
                 Answer1.text = "CPU";
                 Answer2.text = "Disipador";
                 Answer3.text = "SATA/SSD";
@@ -452,6 +521,7 @@ public class QuizManager : MonoBehaviour
             }
         }
     }
+
     IEnumerator LoadQuestions2()
     {
         if (!IsFinished)
@@ -468,16 +538,18 @@ public class QuizManager : MonoBehaviour
             {
                 Option1.SetActive(false);
                 Option2.SetActive(false);
-                QuestionText.text = "Segun el enunciado, 'El GPS es un sistema " +
-                    "de Posicionamiento Global, que permite determinar la posicion de la neogeocalizacion de alguien'";
+                QuestionText.text =
+                    "Segun el enunciado, 'El GPS es un sistema "
+                    + "de Posicionamiento Global, que permite determinar la posicion de la neogeocalizacion de alguien'";
                 Answer3.text = "Verdadero";
                 Answer4.text = "Falso";
             }
 
             if (QuestionNumber == 2)
             {
-                QuestionText.text = "Nombre del periferico que se utiliza para" +
-                    " 'copiar' el contenido de un papel y automaticamente convertirlo en una imagen digital";
+                QuestionText.text =
+                    "Nombre del periferico que se utiliza para"
+                    + " 'copiar' el contenido de un papel y automaticamente convertirlo en una imagen digital";
                 Answer1.text = "Procesador";
                 Answer2.text = "Sensor de luz";
                 Answer3.text = "Escaner Digital";
@@ -488,8 +560,9 @@ public class QuizManager : MonoBehaviour
             {
                 Option1.SetActive(false);
                 Option2.SetActive(false);
-                QuestionText.text = "Esta usted de acuerdo que la Memoria Interna y la Externa (MicroSD)," +
-                    " juntas, superan la velocidad de la memoria RAM?";
+                QuestionText.text =
+                    "Esta usted de acuerdo que la Memoria Interna y la Externa (MicroSD),"
+                    + " juntas, superan la velocidad de la memoria RAM?";
                 Answer3.text = "Verdadero";
                 Answer4.text = "Falso";
             }
@@ -521,7 +594,8 @@ public class QuizManager : MonoBehaviour
             {
                 Option1.SetActive(false);
                 Option2.SetActive(false);
-                QuestionText.text = "La realidad aumentada inserta informacion digital en el mundo real?";
+                QuestionText.text =
+                    "La realidad aumentada inserta informacion digital en el mundo real?";
                 Answer3.text = "Verdadero";
                 Answer4.text = "Falso";
             }
