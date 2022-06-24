@@ -5,31 +5,38 @@ using UnityEngine.UI;
 
 public class ToggleVolume : MonoBehaviour
 {
-    [SerializeField] Sprite sound;
-    [SerializeField] Sprite no_sound;
-    bool IsActive = true;
+    [SerializeField]
+    private Sprite Sound;
+
+    [SerializeField]
+    private Sprite NoSound;
+
+    [SerializeField]
+    private Slider Slider;
+
+    private bool IsActive = true;
 
     void Mute()
     {
-        GameObject.Find("Slider").GetComponent<Slider>().value = 0;
+        Slider.value = 0;
     }
 
     void Full()
     {
-        GameObject.Find("Slider").GetComponent<Slider>().value = 1;
+        Slider.value = 1;
     }
 
     public void ChangeImage()
     {
         if (IsActive)
         {
-            gameObject.GetComponent<Image>().sprite = no_sound;
+            GetComponent<Image>().sprite = NoSound;
             IsActive = false;
             Mute();
         }
         else
         {
-            gameObject.GetComponent<Image>().sprite = sound;
+            GetComponent<Image>().sprite = Sound;
             IsActive = true;
             Full();
         }

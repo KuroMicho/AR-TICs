@@ -7,6 +7,11 @@ public class SceneController : MonoBehaviour
 {
     public Animator AudioFade;
 
+    private void Awake()
+    {
+        Application.targetFrameRate = 30;
+    }
+
     public void OpenARScene()
     {
         StartCoroutine(LoadARScene());

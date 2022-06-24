@@ -13,7 +13,7 @@ public class QuizManager : MonoBehaviour
     public TMP_Text PanelHeaderText;
     public TMP_Text ScoreText;
     public TMP_Text HighScoreText;
-    public TMP_Text AchievementText;
+    public GameObject Achievement;
 
     public GameObject LayerParticles;
 
@@ -148,8 +148,9 @@ public class QuizManager : MonoBehaviour
                 PlayerPrefs.SetInt("HighScore1", Score);
                 HighScoreText.text = $"{Score}";
                 PanelHeaderText.text = "Reto Completado!";
-                AchievementText.enabled = true;
-                AchievementText.GetComponent<Animator>().SetTrigger("Move");
+
+                Achievement.GetComponent<TMP_Text>().enabled = true;
+                Achievement.GetComponent<AchievementAnimBehaviour>().MoveText();
                 LayerParticles.GetComponent<Animator>().SetTrigger("Particles");
             }
             else
@@ -172,8 +173,9 @@ public class QuizManager : MonoBehaviour
                 PlayerPrefs.SetInt("HighScore2", Score);
                 HighScoreText.text = $"{Score}";
                 PanelHeaderText.text = "Tutorial Completado!";
-                AchievementText.enabled = true;
-                AchievementText.GetComponent<Animator>().SetTrigger("Move");
+
+                Achievement.GetComponent<TMP_Text>().enabled = true;
+                Achievement.GetComponent<AchievementAnimBehaviour>().MoveText();
                 LayerParticles.GetComponent<Animator>().SetTrigger("Particles");
             }
             else
@@ -196,8 +198,9 @@ public class QuizManager : MonoBehaviour
                 PlayerPrefs.SetInt("HighScore3", Score);
                 HighScoreText.text = $"{Score}";
                 PanelHeaderText.text = "Siuuuuuuuuuuuuu!";
-                AchievementText.enabled = true;
-                AchievementText.GetComponent<Animator>().SetTrigger("Move");
+
+                Achievement.GetComponent<TMP_Text>().enabled = true;
+                Achievement.GetComponent<AchievementAnimBehaviour>().MoveText();
                 LayerParticles.GetComponent<Animator>().SetTrigger("Particles");
             }
             else

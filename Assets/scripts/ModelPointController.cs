@@ -2,12 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using DG.Tweening;
 
 public class ModelPointController : MonoBehaviour
 {
-    private string BtnName;
-    public GameObject Popup;
-    public TMP_Text Desc;
+    private string Point;
+
+    [SerializeField]
+    private GameObject Popup;
+
+    [SerializeField]
+    private TMP_Text Desc;
 
     /*
     if (Input.GetMouseButtonDown(0))
@@ -28,21 +33,32 @@ public class ModelPointController : MonoBehaviour
 
             if (Physics.Raycast(RayTouch, out Hit))
             {
-                BtnName = Hit.transform.name;
+                Point = Hit.transform.name;
 
-                switch (BtnName)
+                switch (Point)
                 {
-                    case "test1":
-                        Debug.Log("Input Test2");
+                    case "CPU1":
+                        PopUpBehaviour();
+                        Desc.text = "Serial Number";
                         break;
-                    case "test2":
-                        Popup.SetActive(true);
-                        Desc.text = "Prueba";
+                    case "HDD1":
+                        Debug.Log("Input HDD1");
+                        break;
+                    case "SSD1":
+                        PopUpBehaviour();
+                        Desc.text = "Conexion SATA";
                         break;
                     default:
                         break;
                 }
             }
         }
+    }
+
+    private void PopUpBehaviour()
+    {
+        Popup.transform.localScale = new Vector2(0f, 0f);
+        Popup.SetActive(true);
+        Popup.transform.DOScale(new Vector2(1f, 1f), 0.6f).SetEase(Ease.OutBack);
     }
 }

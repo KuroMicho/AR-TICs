@@ -4,19 +4,23 @@ using UnityEngine;
 
 public class TogglePanel : MonoBehaviour
 {
-    bool IsOn = false;
+    [SerializeField]
+    private Canvas Canv;
+
+    private bool IsOn = false;
 
     public void SetActive()
     {
         if (IsOn)
         {
-            GameObject.Find("Canvas").transform.GetChild(0).gameObject.SetActive(true);
-            this.gameObject.SetActive(false);
+            Canv.transform.GetChild(0).gameObject.SetActive(true);
+            gameObject.SetActive(false);
             IsOn = false;
-        } else
+        }
+        else
         {
-            GameObject.Find("Canvas").transform.GetChild(0).gameObject.SetActive(false);
-            this.gameObject.SetActive(true);
+            Canv.transform.GetChild(0).gameObject.SetActive(false);
+            gameObject.SetActive(true);
             IsOn = true;
         }
     }
