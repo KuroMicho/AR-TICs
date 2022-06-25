@@ -1,15 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class ParticlesController : MonoBehaviour
 {
-    [SerializeField] RectTransform ParticlesBox;
-    [SerializeField] Image CircleImg;
+    [SerializeField]
+    RectTransform ParticlesBox;
 
-    [Range(1, 0)] float Progress = 1f;
+    [SerializeField]
+    Image CircleImg;
+
+    [Range(1, 0)]
+    float Progress = 1f;
 
     private void FixedUpdate()
     {

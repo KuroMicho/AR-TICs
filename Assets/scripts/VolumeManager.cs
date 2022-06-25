@@ -1,19 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class VolumeManager : MonoBehaviour
 {
-    [SerializeField] Slider VolumenSlider; 
-    
+    [SerializeField]
+    Slider VolumenSlider;
+
     void Start()
     {
         if (!PlayerPrefs.HasKey("musicVolumen"))
         {
             PlayerPrefs.SetFloat("musicVolumen", 1);
             Load();
-        } else
+        }
+        else
         {
             Load();
         }
@@ -34,4 +34,4 @@ public class VolumeManager : MonoBehaviour
     {
         VolumenSlider.value = PlayerPrefs.GetFloat("musicVolumen");
     }
-} 
+}

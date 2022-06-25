@@ -1,13 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
 public class CarouselController : MonoBehaviour
 {
-    [SerializeField] Sprite Ellipse_Empty;
-    [SerializeField] Sprite Ellipse_Fill;
+    [SerializeField]
+    Sprite Ellipse_Empty;
+
+    [SerializeField]
+    Sprite Ellipse_Fill;
 
     public GameObject[] Modules;
 
@@ -42,9 +43,9 @@ public class CarouselController : MonoBehaviour
 
         if (Index == 2)
         {
-           Ellipse1.GetComponent<Image>().sprite = Ellipse_Empty;
-           Ellipse2.GetComponent<Image>().sprite = Ellipse_Empty;
-           Ellipse3.GetComponent<Image>().sprite = Ellipse_Fill;
+            Ellipse1.GetComponent<Image>().sprite = Ellipse_Empty;
+            Ellipse2.GetComponent<Image>().sprite = Ellipse_Empty;
+            Ellipse3.GetComponent<Image>().sprite = Ellipse_Fill;
         }
     }
 
@@ -85,5 +86,4 @@ public class CarouselController : MonoBehaviour
             ModulesText[Index].enabled = true;
         }
     }
-
 }

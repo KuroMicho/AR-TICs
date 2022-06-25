@@ -1,14 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 using TMPro;
 
 public class GraphicsManager : MonoBehaviour
 {
-    [SerializeField] TMP_Dropdown Dropdown;
+    [SerializeField]
+    TMP_Dropdown Dropdown;
 
     public RenderPipelineAsset[] QualityLevels;
+
     void Start()
     {
         if (!PlayerPrefs.HasKey("Quality"))

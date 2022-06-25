@@ -1,62 +1,65 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
 public class SideBarController : MonoBehaviour
 {
+    [SerializeField]
     private RectTransform SideBarRect;
 
-    private float RotationY = 0f;
-    private float RotationX = 0f;
+    private float RotationV = 0f;
+    private float RotationH = 0f;
     private bool IsPressed = false;
 
-    private bool AxisY = false;
     private bool AxisX = false;
+    private bool AxisY = false;
 
     private void FixedUpdate()
     {
-        if (IsPressed && AxisY)
+        if (IsPressed && AxisX)
         {
-            RotationY += 1 * Time.deltaTime;
-            transform.parent.parent.GetChild(1).rotation = Quaternion.Euler(
-                new Vector3(0f, RotationY * 45, 0f)
+            RotationV += 1 * Time.deltaTime;
+            transform.parent.parent.GetChild(1).localRotation = Quaternion.Euler(
+                new Vector3(RotationV * -45, 180f, 0f)
             );
         }
 
-        if (IsPressed && AxisX)
+        if (IsPressed && AxisY)
         {
-            RotationX += 1 * Time.deltaTime;
-            transform.parent.parent.GetChild(1).rotation = Quaternion.Euler(
-                new Vector3(RotationX * 45, 0f, 0f)
+            RotationH += 1 * Time.deltaTime;
+            transform.parent.parent.GetChild(1).localRotation = Quaternion.Euler(
+                new Vector3(0, RotationH * -45, 0f)
             );
         }
     }
 
-    public void RotateY()
+    public void RotateV()
     {
-        AxisY = true;
-        AxisX = false;
+        AxisX = true;
+        AxisY = false;
         IsPressed = !IsPressed;
     }
 
-    public void RotateX()
+    public void RotateH()
     {
-        AxisY = false;
-        AxisX = true;
+        AxisX = false;
+        AxisY = true;
         IsPressed = !IsPressed;
     }
 
     public void Reset()
     {
         IsPressed = false;
-        RotationX = RotationY = 0f;
-        transform.parent.parent.GetChild(1).rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+        RotationH = 0f;
+        RotationV = 0f;
+
+        // From sidebar to Model
+        transform.parent.parent.GetChild(1).localRotation = Quaternion.Euler(
+            new Vector3(0, 180, 0)
+        );
     }
 
     public void SideBarOpen()
     {
-        SideBarRect = GetComponent<RectTransform>();
         SideBarRect.DOAnchorPosX(-50, 0.5F).SetEase(Ease.OutBack);
     }
 

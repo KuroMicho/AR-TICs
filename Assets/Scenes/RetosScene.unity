@@ -945,8 +945,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Vamos a Jugar :)
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 07e01bf87ee46654abb92d4a8a443678, type: 2}
-  m_sharedMaterial: {fileID: -5230641319911086805, guid: 07e01bf87ee46654abb92d4a8a443678, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 9cd1718c118a0f844a5eaaa29ecf9d27, type: 2}
+  m_sharedMaterial: {fileID: -4911399463274265111, guid: 9cd1718c118a0f844a5eaaa29ecf9d27, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2285,7 +2285,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 224, y: -237}
+  m_AnchoredPosition: {x: 224, y: -217}
   m_SizeDelta: {x: 400, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &824675518
@@ -2700,8 +2700,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Tu Puntaje
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 07e01bf87ee46654abb92d4a8a443678, type: 2}
-  m_sharedMaterial: {fileID: -5230641319911086805, guid: 07e01bf87ee46654abb92d4a8a443678, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 9cd1718c118a0f844a5eaaa29ecf9d27, type: 2}
+  m_sharedMaterial: {fileID: -4911399463274265111, guid: 9cd1718c118a0f844a5eaaa29ecf9d27, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3946,7 +3946,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 224, y: -143}
+  m_AnchoredPosition: {x: 224, y: -133}
   m_SizeDelta: {x: 400, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1540195298

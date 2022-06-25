@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -16,6 +15,7 @@ public class SceneController : MonoBehaviour
     {
         StartCoroutine(LoadARScene());
     }
+
     IEnumerator LoadARScene()
     {
         AudioFade.SetTrigger("Start");
@@ -28,6 +28,7 @@ public class SceneController : MonoBehaviour
     {
         StartCoroutine(LoadRetosScene());
     }
+
     IEnumerator LoadRetosScene()
     {
         AudioFade.SetTrigger("Start");
@@ -40,6 +41,7 @@ public class SceneController : MonoBehaviour
     {
         StartCoroutine(LoadMainScene());
     }
+
     IEnumerator LoadMainScene()
     {
         AudioFade.SetTrigger("Start");
@@ -52,11 +54,12 @@ public class SceneController : MonoBehaviour
     {
         StartCoroutine(LoadQuizScene());
     }
+
     IEnumerator LoadQuizScene()
     {
         AudioFade.SetTrigger("Start");
         GetComponent<Animator>().SetTrigger("Start");
-        yield return new WaitForSeconds(1f); 
+        yield return new WaitForSeconds(1f);
         SceneManager.LoadScene("QuizScene");
     }
 }

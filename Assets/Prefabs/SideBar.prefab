@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 7094116105862294268}
   - component: {fileID: 7094116105862294269}
   m_Layer: 5
-  m_Name: RotateX
+  m_Name: RotateH
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -254,7 +254,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7094116107616907196}
         m_TargetAssemblyTypeName: SideBarController, Assembly-CSharp
-        m_MethodName: RotateX
+        m_MethodName: RotateH
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -277,7 +277,7 @@ GameObject:
   - component: {fileID: 7094116106219863137}
   - component: {fileID: 7094116106219863138}
   m_Layer: 5
-  m_Name: RotateY
+  m_Name: RotateV
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -386,7 +386,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7094116107616907196}
         m_TargetAssemblyTypeName: SideBarController, Assembly-CSharp
-        m_MethodName: RotateY
+        m_MethodName: RotateV
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

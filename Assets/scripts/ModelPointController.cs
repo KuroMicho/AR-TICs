@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using DG.Tweening;
@@ -39,14 +37,84 @@ public class ModelPointController : MonoBehaviour
                 {
                     case "CPU1":
                         PopUpBehaviour();
-                        Desc.text = "Serial Number";
+                        Desc.text = "Procesador AMD Ryzen Threadripper 3990X";
+                        break;
+                    case "CPU2":
+                        PopUpBehaviour();
+                        Desc.text = "Pines o contactos";
+                        break;
+                    case "CPU3":
+                        PopUpBehaviour();
+                        Desc.text = "IHS (Placa de cobre que protege el nucleo)";
                         break;
                     case "HDD1":
-                        Debug.Log("Input HDD1");
+                        PopUpBehaviour();
+                        Desc.text = "HDD SEAGATE BarraCuda 1TB";
                         break;
                     case "SSD1":
                         PopUpBehaviour();
-                        Desc.text = "Conexion SATA";
+                        Desc.text = "SSD Samsung 860 EVO 1TB";
+                        break;
+                    case "SSD2":
+                        PopUpBehaviour();
+                        Desc.text = "Conector SATA";
+                        break;
+                    case "SSD3":
+                        PopUpBehaviour();
+                        Desc.text = "Conector de alimentacion";
+                        break;
+                    case "LP1":
+                        PopUpBehaviour();
+                        Desc.text = "Apple MacBook Pro 13";
+                        break;
+                    case "LP2":
+                        PopUpBehaviour();
+                        Desc.text = "Trackpad Force Touch";
+                        break;
+                    case "LP3":
+                        PopUpBehaviour();
+                        Desc.text = "Touch Bar y Touch ID";
+                        break;
+                    case "LP4":
+                        PopUpBehaviour();
+                        Desc.text = "Puerto de carga";
+                        break;
+                    case "LP5":
+                        PopUpBehaviour();
+                        Desc.text = "Puertos Thunderbolt 3 (USB-C)";
+                        break;
+                    case "LP6":
+                        PopUpBehaviour();
+                        Desc.text = "Magic Keyboard retroiluminado";
+                        break;
+                    case "LP7":
+                        PopUpBehaviour();
+                        Desc.text =
+                            "Brillante pantalla Retina de 13.3 pulgadas con Tecnologia True Tone (1)";
+                        break;
+                    case "DR1":
+                        PopUpBehaviour();
+                        Desc.text = "Mini Drone S9 Broadream";
+                        break;
+                    case "DR2":
+                        PopUpBehaviour();
+                        Desc.text = "Helice";
+                        break;
+                    case "DR3":
+                        PopUpBehaviour();
+                        Desc.text = "Camara";
+                        break;
+                    case "DR4":
+                        PopUpBehaviour();
+                        Desc.text = "Luz LED de alto brillo";
+                        break;
+                    case "DR5":
+                        PopUpBehaviour();
+                        Desc.text = "Puerto de carga";
+                        break;
+                    case "DR6":
+                        PopUpBehaviour();
+                        Desc.text = "Puerto USB";
                         break;
                     default:
                         break;

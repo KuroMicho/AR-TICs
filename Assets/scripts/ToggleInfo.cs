@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ToggleInfo : MonoBehaviour
@@ -9,19 +7,28 @@ public class ToggleInfo : MonoBehaviour
     [SerializeField]
     private AudioSource TouchSound;
 
+    [SerializeField]
+    private GameObject SideBar;
+
     public void SetPanelActive()
     {
         if (IsOn)
         {
+            // ScrollArea Hide
             gameObject.SetActive(false);
-            transform.parent.parent.GetChild(0).gameObject.SetActive(true);
+
+            // SideBar Show
+            SideBar.SetActive(true);
             TouchSound.Play();
             IsOn = false;
         }
         else
         {
+            // ScrollArea Show
             gameObject.SetActive(true);
-            transform.parent.parent.GetChild(0).gameObject.SetActive(false);
+
+            // SideBar Hide
+            SideBar.SetActive(false);
             TouchSound.Play();
             IsOn = true;
         }

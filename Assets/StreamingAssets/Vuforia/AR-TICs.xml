@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
+    <ImageTarget name="SSD" size="6.000000 6.000000" />
     <ImageTarget name="VRHeadset" size="6.000000 6.000000" />
+    <ImageTarget name="CPU" size="6.000000 6.000000" />
     <ImageTarget name="MotherBoard" size="6.000000 6.000000" />
     <ImageTarget name="HardDrive" size="6.000000 6.000000" />
     <ImageTarget name="PowerSupply" size="6.000000 6.000000" />
-    <ImageTarget name="SSD" size="6.000000 6.000000" />
-    <ImageTarget name="CPU" size="6.000000 6.000000" />
     <ImageTarget name="GPU" size="6.000000 6.000000" />
   </Tracking>
 </QCARConfig>
