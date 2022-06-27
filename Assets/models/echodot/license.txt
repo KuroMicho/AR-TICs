@@ -1,0 +1,11 @@
+Model Information:
+* title:	Echo Dot_ Alexa!
+* source:	https://sketchfab.com/3d-models/echo-dot--alexa-8c51d37795264cc99961417a56b3c1c0
+* author:	dreamventure.nvk (https://sketchfab.com/dreamventure.nvk)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Echo Dot_ Alexa!" (https://sketchfab.com/3d-models/echo-dot--alexa-8c51d37795264cc99961417a56b3c1c0) by dreamventure.nvk (https://sketchfab.com/dreamventure.nvk) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

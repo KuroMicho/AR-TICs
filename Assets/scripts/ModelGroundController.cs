@@ -3,38 +3,24 @@ using UnityEngine;
 public class ModelGroundController : MonoBehaviour
 {
     [SerializeField]
-    private GameObject LaptopFinder;
+    private GameObject[] Finders;
 
     [SerializeField]
-    private GameObject DroneFinder;
+    private GameObject[] Models;
 
-    [SerializeField]
-    private GameObject Laptop;
-
-    [SerializeField]
-    private GameObject Drone;
-
-    public void SetActiveLaptop()
+    public void SetActiveModel(int selected)
     {
-        LaptopFinder.SetActive(true);
-        Laptop.SetActive(true);
-        DroneFinder.SetActive(false);
-        Drone.SetActive(false);
-    }
-
-    public void SetActiveDrone()
-    {
-        DroneFinder.SetActive(true);
-        Drone.SetActive(true);
-        LaptopFinder.SetActive(false);
-        Laptop.SetActive(false);
+        DisableGroundModels();
+        Models[selected].SetActive(true);
+        Finders[selected].SetActive(true);
     }
 
     public void DisableGroundModels()
     {
-        DroneFinder.SetActive(false);
-        Drone.SetActive(false);
-        LaptopFinder.SetActive(false);
-        Laptop.SetActive(false);
+        foreach (var finder in Finders)
+            finder.SetActive(false);
+
+        foreach (var model in Models)
+            model.SetActive(false);
     }
 }

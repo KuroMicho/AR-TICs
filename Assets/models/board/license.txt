@@ -1,0 +1,11 @@
+Model Information:
+* title:	Gigabyte TRX40 AORUS XTREME
+* source:	https://sketchfab.com/3d-models/gigabyte-trx40-aorus-xtreme-ce8276877171468c808ad93aaf1d5111
+* author:	Blue Lantern (https://sketchfab.com/genoris2)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Gigabyte TRX40 AORUS XTREME" (https://sketchfab.com/3d-models/gigabyte-trx40-aorus-xtreme-ce8276877171468c808ad93aaf1d5111) by Blue Lantern (https://sketchfab.com/genoris2) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

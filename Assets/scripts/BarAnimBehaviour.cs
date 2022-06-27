@@ -8,7 +8,7 @@ public class BarAnimBehaviour : MonoBehaviour
 
     public void BarOpen()
     {
-        BarRect.DOAnchorPosY(30, 0.5F).SetEase(Ease.OutBack);
+        BarRect.DOAnchorPosY(40f, 0.5F).SetEase(Ease.OutBack);
     }
 
     public void BarClose()

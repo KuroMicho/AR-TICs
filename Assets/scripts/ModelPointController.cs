@@ -24,9 +24,9 @@ public class ModelPointController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began)
         {
-            Ray RayTouch = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Ray RayTouch = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
             RaycastHit Hit;
 
             if (Physics.Raycast(RayTouch, out Hit))
@@ -116,6 +116,42 @@ public class ModelPointController : MonoBehaviour
                         PopUpBehaviour();
                         Desc.text = "Puerto USB";
                         break;
+                    case "ROB1":
+                        PopUpBehaviour();
+                        Desc.text = "Pinzas";
+                        break;
+                    case "ROB2":
+                        PopUpBehaviour();
+                        Desc.text = "Muneca";
+                        break;
+                    case "ROB3":
+                        PopUpBehaviour();
+                        Desc.text = "Base o columna";
+                        break;
+                    case "ROB4":
+                        PopUpBehaviour();
+                        Desc.text = "Unidad de soporte";
+                        break;
+                    case "ROB5":
+                        PopUpBehaviour();
+                        Desc.text = "Codo";
+                        break;
+                    case "ROB6":
+                        PopUpBehaviour();
+                        Desc.text = "Antebrazo";
+                        break;
+                    case "ROB7":
+                        PopUpBehaviour();
+                        Desc.text = "Parte superior del brazo";
+                        break;
+                    case "ROB8":
+                        PopUpBehaviour();
+                        Desc.text = "Espalda";
+                        break;
+                    case "ROB9":
+                        PopUpBehaviour();
+                        Desc.text = "Manija";
+                        break;
                     default:
                         break;
                 }
@@ -127,6 +163,6 @@ public class ModelPointController : MonoBehaviour
     {
         Popup.transform.localScale = new Vector2(0f, 0f);
         Popup.SetActive(true);
-        Popup.transform.DOScale(new Vector2(1f, 1f), 0.6f).SetEase(Ease.OutBack);
+        Popup.transform.DOScale(new Vector2(1f, 1f), 1f).SetEase(Ease.OutBack);
     }
 }
