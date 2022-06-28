@@ -5,6 +5,9 @@ public class ToggleGroundInfo : MonoBehaviour
     private bool IsOn = false;
 
     [SerializeField]
+    private GameObject Popup;
+
+    [SerializeField]
     private AudioSource TouchSound;
 
     public void SetPanelActive()
@@ -20,6 +23,7 @@ public class ToggleGroundInfo : MonoBehaviour
         {
             // ScrollArea Show
             gameObject.SetActive(true);
+            Popup.SetActive(false);
             TouchSound.Play();
             IsOn = true;
         }

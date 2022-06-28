@@ -3,14 +3,23 @@ using TMPro;
 
 public class ScoreManager : MonoBehaviour
 {
-    public TMP_Text BestTime1;
-    public TMP_Text HighScoreText1;
+    [SerializeField]
+    private TMP_Text BestTime1;
 
-    public TMP_Text BestTime2;
-    public TMP_Text HighScoreText2;
+    [SerializeField]
+    private TMP_Text HighScoreText1;
 
-    public TMP_Text BestTime3;
-    public TMP_Text HighScoreText3;
+    [SerializeField]
+    private TMP_Text BestTime2;
+
+    [SerializeField]
+    private TMP_Text HighScoreText2;
+
+    [SerializeField]
+    private TMP_Text BestTime3;
+
+    [SerializeField]
+    private TMP_Text HighScoreText3;
 
     private void Start()
     {

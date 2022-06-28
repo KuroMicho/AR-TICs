@@ -47,13 +47,13 @@ public class ModelAnimController : MonoBehaviour
         }
     }
 
-    private void PlayAnim()
+    public void PlayAnim()
     {
         ModelAnim.SetBool("Playing", true);
         ModelSound.PlayDelayed(0.5f);
     }
 
-    private void StopAnim()
+    public void StopAnim()
     {
         ModelAnim.SetBool("Playing", false);
         ModelSound.Stop();

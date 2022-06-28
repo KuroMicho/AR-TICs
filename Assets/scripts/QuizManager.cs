@@ -41,6 +41,7 @@ public class QuizManager : MonoBehaviour
 
     float TimeRemaining;
     public static bool CounterIsRunning = false;
+
     bool IsDone = false;
     public static bool IsFinished = false;
 
@@ -56,11 +57,8 @@ public class QuizManager : MonoBehaviour
     int HighScore3 = 0;
     int BestTime3 = 0;
 
-    //int Value;
     int QuestionNumber = 0;
     int TempValue = 0;
-
-    //List<int> Lista = new List<int>() { 1, 2, 3 };
 
     void Start()
     {
@@ -271,19 +269,17 @@ public class QuizManager : MonoBehaviour
             TempValue = QuestionNumber + 1;
         }
         return TempValue;
-        //for (int i =0; i < 10; i ++)
-        //{
-        //   Value = Random.Range(min, max); // 1
-        //
-        //    if(Lista.Contains(Value)) // {1,2,3} contains 1
-        //    {
-        //        Lista.Remove(Value); // {2,3}
-        //        TempValue = Value;
-        //        break;
-        //    }
-        //    }
-
-        //return TempValue;
+        /*  for (int i =0; i < 10; i ++)
+        {
+            Value = Random.Range(min, max);  // 1
+            if(Lista.Contains(Value))  // {1,2,3} contains 1
+            {
+                Lista.Remove(Value);  // {2,3}
+                TempValue = Value;
+                break;
+            }
+        }
+        return TempValue; */
     }
 
     public void CheckAnswer(bool status, int answer)

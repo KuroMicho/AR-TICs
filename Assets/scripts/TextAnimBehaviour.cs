@@ -9,8 +9,8 @@ public class TextAnimBehaviour : MonoBehaviour
     {
         TextRect = GetComponent<RectTransform>();
         TextRect
-            .DOAnchorPosY(GetComponent<RectTransform>().anchoredPosition.y + 5, 0.8f)
-            .SetEase(Ease.InOutBack)
+            .DOAnchorPosY(GetComponent<RectTransform>().anchoredPosition.y + 5, 1)
+            .SetEase(Ease.InOutBounce)
             .SetLoops(3);
     }
 }

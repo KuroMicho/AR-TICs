@@ -8,11 +8,11 @@ public class BarAnimBehaviour : MonoBehaviour
 
     public void BarOpen()
     {
-        BarRect.DOAnchorPosY(40f, 0.5F).SetEase(Ease.OutBack);
+        BarRect.DOAnchorPosY(30, 0.6f).SetEase(Ease.OutBack);
     }
 
     public void BarClose()
     {
-        BarRect.anchoredPosition = new Vector2(0f, -30);
+        BarRect.anchoredPosition = new Vector2(125f, -60);
     }
 }

@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using DG.Tweening;
 
+[RequireComponent(typeof(DefaultObserverEventHandler))]
 public class ModelPointController : MonoBehaviour
 {
     private string Point;
@@ -11,16 +12,6 @@ public class ModelPointController : MonoBehaviour
 
     [SerializeField]
     private TMP_Text Desc;
-
-    /*
-    if (Input.GetMouseButtonDown(0))
-        {
-             Ray RayTouch = Camera.main.ScreenPointToRay(Input.mousePosition); */
-
-    /*
-    if (Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began)
-        {
-             Ray RayTouch = Camera.main.ScreenPointToRay(Input.GetTouch(0).position); */
 
     private void Update()
     {
@@ -151,6 +142,78 @@ public class ModelPointController : MonoBehaviour
                     case "ROB9":
                         PopUpBehaviour();
                         Desc.text = "Manija";
+                        break;
+                    case "MB1":
+                        PopUpBehaviour();
+                        Desc.text = "Chipset AMD TRX40 AORUS";
+                        break;
+                    case "MB2":
+                        PopUpBehaviour();
+                        Desc.text = "Procesador AMD Ryzen Threadripper 3990X";
+                        break;
+                    case "MB3":
+                        PopUpBehaviour();
+                        Desc.text = "Ranuras de RAM";
+                        break;
+                    case "MB4":
+                        PopUpBehaviour();
+                        Desc.text = "PCIe 4.0";
+                        break;
+                    case "MB5":
+                        PopUpBehaviour();
+                        Desc.text = "M.2";
+                        break;
+                    case "MB6":
+                        PopUpBehaviour();
+                        Desc.text = "Disipador de calor (Matriz de Aletas)";
+                        break;
+                    case "MB7":
+                        PopUpBehaviour();
+                        Desc.text = "USB 3.0";
+                        break;
+                    case "MB8":
+                        PopUpBehaviour();
+                        Desc.text = "Puertos SATA 3.0";
+                        break;
+                    case "MB9":
+                        PopUpBehaviour();
+                        Desc.text = "Conector CPU de alimentacion";
+                        break;
+                    case "MB10":
+                        PopUpBehaviour();
+                        Desc.text = "Conector ATX de alimentacion";
+                        break;
+                    case "MB11":
+                        PopUpBehaviour();
+                        Desc.text = "Panel P. de entrada y salida";
+                        break;
+                    case "AS1":
+                        PopUpBehaviour();
+                        Desc.text = "Amazon Echo Dot 3";
+                        break;
+                    case "AS2":
+                        PopUpBehaviour();
+                        Desc.text = "Plastico de policarbonato (PC)";
+                        break;
+                    case "AS3":
+                        PopUpBehaviour();
+                        Desc.text = "Almohadilla antideslizante";
+                        break;
+                    case "AS4":
+                        PopUpBehaviour();
+                        Desc.text = "Boton de accion";
+                        break;
+                    case "AS5":
+                        PopUpBehaviour();
+                        Desc.text = "Boton de microfono";
+                        break;
+                    case "AS6":
+                        PopUpBehaviour();
+                        Desc.text = "Boton de subir volumen";
+                        break;
+                    case "AS7":
+                        PopUpBehaviour();
+                        Desc.text = "Boton de bajar volumen";
                         break;
                     default:
                         break;

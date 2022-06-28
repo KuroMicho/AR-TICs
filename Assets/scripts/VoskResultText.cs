@@ -17,10 +17,12 @@ public class VoskResultText : MonoBehaviour
 
     private void CheckPermission()
     {
+#if UNITY_ANDROID
         if (!Permission.HasUserAuthorizedPermission(Permission.Microphone))
         {
             Permission.RequestUserPermission(Permission.Microphone);
         }
+#endif
     }
 
     private void OnTranscriptionResult(string obj)

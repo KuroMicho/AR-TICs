@@ -4,7 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
-    public Animator AudioFade;
+    [SerializeField]
+    private Animator AudioFade;
 
     private void Awake()
     {

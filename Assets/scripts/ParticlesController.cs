@@ -4,10 +4,10 @@ using UnityEngine.UI;
 public class ParticlesController : MonoBehaviour
 {
     [SerializeField]
-    RectTransform ParticlesBox;
+    private RectTransform ParticlesBox;
 
     [SerializeField]
-    Image CircleImg;
+    private Image CircleImg;
 
     [Range(1, 0)]
     float Progress = 1f;

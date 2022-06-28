@@ -10,6 +10,9 @@ public class ToggleInfo : MonoBehaviour
     [SerializeField]
     private GameObject SideBar;
 
+    [SerializeField]
+    private GameObject Popup;
+
     public void SetPanelActive()
     {
         if (IsOn)
@@ -29,6 +32,7 @@ public class ToggleInfo : MonoBehaviour
 
             // SideBar Hide
             SideBar.SetActive(false);
+            Popup.SetActive(false);
             TouchSound.Play();
             IsOn = true;
         }

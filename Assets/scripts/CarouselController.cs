@@ -5,18 +5,26 @@ using TMPro;
 public class CarouselController : MonoBehaviour
 {
     [SerializeField]
-    Sprite Ellipse_Empty;
+    private Sprite Ellipse_Empty;
 
     [SerializeField]
-    Sprite Ellipse_Fill;
+    private Sprite Ellipse_Fill;
 
-    public GameObject[] Modules;
+    [SerializeField]
+    private GameObject[] Modules;
 
-    public GameObject Ellipse1;
-    public GameObject Ellipse2;
-    public GameObject Ellipse3;
+    [SerializeField]
+    private GameObject Ellipse1;
 
-    public TMP_Text[] ModulesText;
+    [SerializeField]
+    private GameObject Ellipse2;
+
+    [SerializeField]
+    private GameObject Ellipse3;
+
+    [SerializeField]
+    private TMP_Text[] ModulesText;
+
     int Index = 0;
 
     void Start()
@@ -25,7 +33,7 @@ public class CarouselController : MonoBehaviour
         ModulesText[0].enabled = true;
     }
 
-    void Update()
+    private void Update()
     {
         if (Index == 0)
         {
