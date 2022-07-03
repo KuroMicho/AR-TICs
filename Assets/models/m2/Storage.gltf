@@ -1,0 +1,297 @@
+{
+    "asset" : {
+        "generator" : "Khronos glTF Blender I/O v1.8.19",
+        "version" : "2.0"
+    },
+    "scene" : 0,
+    "scenes" : [
+        {
+            "name" : "Scene",
+            "nodes" : [
+                0
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "mesh" : 0,
+            "name" : "Cube",
+            "translation" : [
+                -27.772600173950195,
+                -0.8263383507728577,
+                0.09357064962387085
+            ]
+        }
+    ],
+    "materials" : [
+        {
+            "doubleSided" : true,
+            "name" : "Material.006",
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 0
+                },
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.5
+            }
+        },
+        {
+            "doubleSided" : true,
+            "name" : "Material.002",
+            "pbrMetallicRoughness" : {
+                "baseColorFactor" : [
+                    0.012216937728226185,
+                    0.012216937728226185,
+                    0.012216937728226185,
+                    1
+                ],
+                "roughnessFactor" : 0.6499999761581421
+            }
+        },
+        {
+            "doubleSided" : true,
+            "name" : "Material.007",
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 1
+                },
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.5
+            }
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "Cube.003",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 0,
+                        "NORMAL" : 1,
+                        "TEXCOORD_0" : 2
+                    },
+                    "indices" : 3,
+                    "material" : 0
+                },
+                {
+                    "attributes" : {
+                        "POSITION" : 4,
+                        "NORMAL" : 5,
+                        "TEXCOORD_0" : 6
+                    },
+                    "indices" : 7,
+                    "material" : 1
+                },
+                {
+                    "attributes" : {
+                        "POSITION" : 8,
+                        "NORMAL" : 9,
+                        "TEXCOORD_0" : 10
+                    },
+                    "indices" : 11,
+                    "material" : 2
+                }
+            ]
+        }
+    ],
+    "textures" : [
+        {
+            "sampler" : 0,
+            "source" : 0
+        },
+        {
+            "sampler" : 0,
+            "source" : 1
+        }
+    ],
+    "images" : [
+        {
+            "mimeType" : "image/jpeg",
+            "name" : "samsung_ssd_970_evo_500gb_k1812134632257A_105110314",
+            "uri" : "textures/samsung_ssd_970_evo_500gb_k1812134632257A_105110314.jpg"
+        },
+        {
+            "mimeType" : "image/jpeg",
+            "name" : "samsung_ssd_970_evo_500gb_s1812134632257C_105101304",
+            "uri" : "textures/samsung_ssd_970_evo_500gb_s1812134632257C_105101304.jpg"
+        }
+    ],
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5126,
+            "count" : 43998,
+            "max" : [
+                2.267928123474121,
+                1.0653315782546997,
+                0.6211317777633667
+            ],
+            "min" : [
+                -2.2691566944122314,
+                0.9685329794883728,
+                -0.6295477151870728
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5126,
+            "count" : 43998,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 2,
+            "componentType" : 5126,
+            "count" : 43998,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 3,
+            "componentType" : 5123,
+            "count" : 76884,
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 4,
+            "componentType" : 5126,
+            "count" : 1097,
+            "max" : [
+                2.0104265213012695,
+                1.0459941625595093,
+                0.5783907771110535
+            ],
+            "min" : [
+                -2.2229366302490234,
+                0.9685306549072266,
+                -0.5896275639533997
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 5,
+            "componentType" : 5126,
+            "count" : 1097,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 6,
+            "componentType" : 5126,
+            "count" : 1097,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 7,
+            "componentType" : 5123,
+            "count" : 1677,
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 8,
+            "componentType" : 5126,
+            "count" : 822,
+            "max" : [
+                2.267928123474121,
+                0.9685335755348206,
+                0.6211317777633667
+            ],
+            "min" : [
+                -2.2691566944122314,
+                0.9641593098640442,
+                -0.6295477151870728
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 9,
+            "componentType" : 5126,
+            "count" : 822,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 10,
+            "componentType" : 5126,
+            "count" : 822,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 11,
+            "componentType" : 5123,
+            "count" : 2061,
+            "type" : "SCALAR"
+        }
+    ],
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 527976,
+            "byteOffset" : 0
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 527976,
+            "byteOffset" : 527976
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 351984,
+            "byteOffset" : 1055952
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 153768,
+            "byteOffset" : 1407936
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 13164,
+            "byteOffset" : 1561704
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 13164,
+            "byteOffset" : 1574868
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 8776,
+            "byteOffset" : 1588032
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 3354,
+            "byteOffset" : 1596808
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 9864,
+            "byteOffset" : 1600164
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 9864,
+            "byteOffset" : 1610028
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 6576,
+            "byteOffset" : 1619892
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 4122,
+            "byteOffset" : 1626468
+        }
+    ],
+    "samplers" : [
+        {
+            "magFilter" : 9729,
+            "minFilter" : 9987
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 1630592,
+            "uri" : "Storage.bin"
+        }
+    ]
+}
