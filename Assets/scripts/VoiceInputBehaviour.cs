@@ -3,8 +3,6 @@ using UnityEngine;
 [RequireComponent(typeof(Collider))]
 public class VoiceInputBehaviour : MonoBehaviour
 {
-    public VoskSpeechToText VoskSpeechToText;
-
     private string Point;
 
     [SerializeField]
@@ -21,12 +19,11 @@ public class VoiceInputBehaviour : MonoBehaviour
 
     private Sprite MicSprite;
 
-    private bool Recording = true;
+    private bool Recording = false;
 
     private void Start()
     {
         MicSprite = MicRenderer.sprite;
-        StartRecording();
     }
 
     private void Update()
@@ -44,7 +41,6 @@ public class VoiceInputBehaviour : MonoBehaviour
                 {
                     case "MIC":
                         StartRecording();
-                        VoskSpeechToText.ToggleRecording();
                         break;
                     default:
                         break;
@@ -57,13 +53,13 @@ public class VoiceInputBehaviour : MonoBehaviour
     {
         if (Recording)
         {
-            int clip = Mathf.RoundToInt(Random.Range(0, 3));
-            Listener.PlayOneShot(ListeningSounds[clip]);
             MicRenderer.sprite = RecordingSprite;
             Recording = false;
         }
         else
         {
+            int clip = Mathf.RoundToInt(Random.Range(0, 3));
+            Listener.PlayOneShot(ListeningSounds[clip]);
             MicRenderer.sprite = MicSprite;
             Recording = true;
         }

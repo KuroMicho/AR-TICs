@@ -25,17 +25,17 @@ public class SceneController : MonoBehaviour
         SceneManager.LoadScene("ARScene");
     }
 
-    public void OpenRetosScene()
+    public void OpenModulesScene()
     {
-        StartCoroutine(LoadRetosScene());
+        StartCoroutine(LoadModulesScene());
     }
 
-    IEnumerator LoadRetosScene()
+    IEnumerator LoadModulesScene()
     {
         AudioFade.SetTrigger("Start");
         GetComponent<Animator>().SetTrigger("Start");
         yield return new WaitForSeconds(1f);
-        SceneManager.LoadScene("RetosScene");
+        SceneManager.LoadScene("ModulesScene");
     }
 
     public void OpenMainScene()

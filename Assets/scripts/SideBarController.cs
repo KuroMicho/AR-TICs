@@ -6,8 +6,8 @@ public class SideBarController : MonoBehaviour
     [SerializeField]
     private RectTransform SideBarRect;
 
-    private float RotationV = 0f;
-    private float RotationH = 0f;
+    private float RotationV = 0;
+    private float RotationH = 0;
     private bool IsPressed = false;
 
     private bool AxisX = false;
@@ -19,7 +19,7 @@ public class SideBarController : MonoBehaviour
         {
             RotationV += 1 * Time.deltaTime;
             transform.parent.parent.GetChild(1).localRotation = Quaternion.Euler(
-                new Vector3(RotationV * -45, 180f, 0f)
+                new Vector3(RotationV * -45, 180, 0)
             );
         }
 
@@ -27,7 +27,7 @@ public class SideBarController : MonoBehaviour
         {
             RotationH += 1 * Time.deltaTime;
             transform.parent.parent.GetChild(1).localRotation = Quaternion.Euler(
-                new Vector3(0, RotationH * -45, 0f)
+                new Vector3(0, (180 + RotationH) * 45, 0)
             );
         }
     }
@@ -49,8 +49,8 @@ public class SideBarController : MonoBehaviour
     public void Reset()
     {
         IsPressed = false;
-        RotationH = 0f;
-        RotationV = 0f;
+        RotationH = 0;
+        RotationV = 0;
 
         // From sidebar to Model
         transform.parent.parent.GetChild(1).localRotation = Quaternion.Euler(
@@ -65,6 +65,6 @@ public class SideBarController : MonoBehaviour
 
     public void SideBarClose()
     {
-        SideBarRect.anchoredPosition = new Vector2(0f, 50);
+        SideBarRect.anchoredPosition = new Vector2(0, 50);
     }
 }

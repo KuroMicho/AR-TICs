@@ -11,13 +11,13 @@ public class TapeAnimBehaviour : MonoBehaviour
 
     public void OpenTape()
     {
-        TapeRect.DOAnchorPosX(28, 0.8f).SetEase(Ease.InOutQuint);
+        TapeRect.DOAnchorPosX(20, 0.8f).SetEase(Ease.InOutQuint);
         SlideSound.Play();
     }
 
     public void CloseTape()
     {
-        TapeRect.DOAnchorPosX(-420, 0.8f).SetEase(Ease.InOutQuint);
+        TapeRect.DOAnchorPosX(-520, 0.8f).SetEase(Ease.InOutQuint);
         SlideSound.Play();
     }
 }

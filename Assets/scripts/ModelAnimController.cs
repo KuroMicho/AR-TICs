@@ -8,7 +8,7 @@ public class ModelAnimController : MonoBehaviour
     [SerializeField]
     private AudioSource ModelSound;
 
-    GameObject[] Sprites;
+    private GameObject[] Sprites;
 
     private string Point;
 

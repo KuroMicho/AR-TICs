@@ -487,3 +487,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71176cfad1940cd44b922a2d89ffc7c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SideBarRect: {fileID: 7094116107616907197}
