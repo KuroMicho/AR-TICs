@@ -672,12 +672,12 @@ public class QuizManager : MonoBehaviour
             if (CurrentQuestion == 1)
             {
                 QuestionText.text = AlignmentText(
-                    "Una de las caracteristicas del CPU de una laptop, es"
+                    "Una de las características de la CPU de una laptop, es"
                 );
-                Answer1.text = "Consumen menos energia y no tienen refrigeracion";
-                Answer2.text = "Consumen menos energia y generan menos calor"; // Correct
-                Answer3.text = "Consumen mas energia y generan menos calor";
-                Answer4.text = "Consumen mas energia y usan dispositivos de refrigeracion";
+                Answer1.text = "Consumen menos energía y no tienen refrigeración";
+                Answer2.text = "Consumen menos energía y generan menos calor"; // Correct
+                Answer3.text = "Consumen mas energía y generan menos calor";
+                Answer4.text = "Consumen mas energía y usan dispositivos de refrigeración";
             }
 
             if (CurrentQuestion == 2)
@@ -685,7 +685,7 @@ public class QuizManager : MonoBehaviour
                 Option1.SetActive(false);
                 Option2.SetActive(false);
                 QuestionText.text = AlignmentText(
-                    "Es correcto afirmar que la memoria RAM permite almacenar temporalmente informacion a una velocidad elevada, permitiendo que el dispositivo computarizado funcione y realice tareas automatizadas?"
+                    "¿Es correcto afirmar que la memoria RAM permite almacenar temporalmente información a una velocidad elevada, permitiendo que el dispositivo computarizado funcione y realice tareas automatizadas?"
                 );
                 Answer3.text = "Verdadero"; // Correct
                 Answer4.text = "Falso";
@@ -694,7 +694,7 @@ public class QuizManager : MonoBehaviour
             if (CurrentQuestion == 3)
             {
                 QuestionText.text = AlignmentText(
-                    "Seleccione la respuesta correcta 'Esta disenada especificamente para realizar los calculos matematicos y geometricos complejos que son necesarios para la representacion de graficos'."
+                    "Seleccione la respuesta correcta 'Está diseñada específicamente para realizar los cálculos matemáticos y geométricos complejos que son necesarios para la representación de gráficos.'"
                 );
                 Answer1.text = "CPU";
                 Answer2.text = "BIOS";
@@ -707,7 +707,7 @@ public class QuizManager : MonoBehaviour
                 Option1.SetActive(false);
                 Option2.SetActive(false);
                 QuestionText.text = AlignmentText(
-                    "Los SSD utilizan memorias flash y ofrecen latencias menores (mayor velocidad de escritura/lectura) que las de un disco duro HDD?"
+                    "¿Los SSD utilizan memorias flash y ofrecen latencias menores (mayor velocidad de escritura/lectura) que las de un disco duro HDD?"
                 );
                 Answer3.text = "Verdadero"; // Correct
                 Answer4.text = "Falso";
@@ -717,7 +717,7 @@ public class QuizManager : MonoBehaviour
             {
                 QuestionText.alignment = TextAlignmentOptions.Center;
                 QuestionText.text = AlignmentText(
-                    "En lo referente a la placa base, de que derivan las siglas PCB?"
+                    "En lo referente a la placa base, ¿de que derivan las siglas PCB?"
                 );
                 Answer1.text = "Partido Comunista Britanico";
                 Answer2.text = "Programa Central del Bus";
@@ -728,7 +728,7 @@ public class QuizManager : MonoBehaviour
             if (CurrentQuestion == 6)
             {
                 QuestionText.text = AlignmentText(
-                    "Puedes reconocer el nombre de esta ranura o sitio que hace parte de la placa base?"
+                    "¿Puedes reconocer el nombre de esta ranura o sitio que hace parte de la placa base?"
                 );
                 QuestionImage.color = new Color(255, 255, 255, 255);
                 QuestionImage.sprite = Module1Question6Image;
@@ -741,7 +741,7 @@ public class QuizManager : MonoBehaviour
             if (CurrentQuestion == 7)
             {
                 QuestionText.text = AlignmentText(
-                    "La fuente de poder o de alimentacion solamente se encarga de transportar la energia desde la red electrica al equipo"
+                    "¿La fuente de poder o de alimentación solamente se encarga de transportar la energía desde la red eléctrica al equipo?"
                 );
                 Option1.SetActive(false);
                 Option2.SetActive(false);
@@ -752,7 +752,7 @@ public class QuizManager : MonoBehaviour
             if (CurrentQuestion == 8)
             {
                 QuestionText.text = AlignmentText(
-                    "Identifique la fuente de poder que observa e identifique la fuente de poder que observa en la imagen"
+                    "Identifique el tipo de fuente de poder que observa en la imagen"
                 );
                 QuestionImage.color = new Color(255, 255, 255, 255);
                 QuestionImage.sprite = Module1Question8Image;
@@ -765,7 +765,7 @@ public class QuizManager : MonoBehaviour
             if (CurrentQuestion == 9)
             {
                 QuestionText.text = AlignmentText(
-                    "El procesador que sea (AMD o Intel de ultima generacion) funciona para cualquier placa madre?"
+                    "¿El procesador que sea (AMD o Intel de última generación) funciona para cualquier placa madre?"
                 );
                 Option1.SetActive(false);
                 Option2.SetActive(false);
@@ -776,7 +776,7 @@ public class QuizManager : MonoBehaviour
             if (CurrentQuestion == 10)
             {
                 QuestionText.text = AlignmentText(
-                    "Cual de estos dispositivos se puede adaptar en una interfaz M.2?"
+                    "¿Cuál de estos dispositivos se puede adaptar en una interfaz M.2?"
                 );
                 QuestionImage.color = new Color(255, 255, 255, 255);
                 QuestionImage.sprite = Module1Question10Image;
@@ -803,7 +803,7 @@ public class QuizManager : MonoBehaviour
             if (CurrentQuestion == 1)
             {
                 QuestionText.text = AlignmentText(
-                    "En lo referente a un telefono inteligente, las siglas SoC, que significan?"
+                    "En lo referente a un teléfono inteligente, las siglas SoC, ¿qué significan?"
                 );
                 Answer1.text = "System Onboard Control";
                 Answer2.text = "System On Chip"; // Correct
@@ -814,7 +814,7 @@ public class QuizManager : MonoBehaviour
             if (CurrentQuestion == 2)
             {
                 QuestionText.text = AlignmentText(
-                    "Si el SoC no dispone de un chip dedicado para la decodificacion de video, entonces la  _____  puede encargarse de cumplir ese proposito y manejar videos de alta resolucion."
+                    "Si el SoC no dispone de un chip dedicado para la decodificación de vídeo, entonces la _____ puede encargarse de cumplir ese propósito y manejar vídeos de alta resolución"
                 );
                 Answer1.text = "RAM";
                 Answer2.text = "ROM";
@@ -825,22 +825,22 @@ public class QuizManager : MonoBehaviour
             if (CurrentQuestion == 3)
             {
                 QuestionText.text = AlignmentText(
-                    "Se puede consumir grandes cantidades de recursos en almacenamiento de graficos (texturas, modelos 3D) y el sonido. Para evitar esto, la mayoria de los smartphones necesitan"
+                    "Se puede consumir grandes cantidades de recursos en almacenamiento de gráficos (texturas, modelos 3D) y el sonido. Para evitar esto, la mayoría de los smartphones necesitan"
                 );
-                Answer1.text = "CPU con bastantes nucleos";
+                Answer1.text = "CPU con bastantes núcleos";
                 Answer2.text = "RAM entre 1GB y 2GB"; // Correct
-                Answer3.text = "GPU mas potente";
+                Answer3.text = "GPU más potente";
                 Answer4.text = "Ser de alta gama";
             }
 
             if (CurrentQuestion == 4)
             {
                 QuestionText.text = AlignmentText(
-                    "Cual es la diferencia de las derivadas tecnologias OLED, AMOLED y Super AMOLED para pantallas de smartphones en comparacion con LCD?"
+                    "¿Cuál es la diferencia de las derivadas tecnologías OLED, AMOLED y Super AMOLED para pantallas de smartphones en comparación con LCD?"
                 );
                 QuestionImage.color = new Color(255, 255, 255, 255);
                 QuestionImage.sprite = Module2Question4Image;
-                Answer1.text = "Mejor autonomia y ahorro de bateria";
+                Answer1.text = "Mejor autonomía y ahorro de batería";
                 Answer2.text = "Eliminacion de luz de fondo";
                 Answer3.text = "Pantalla llamativa, brillante y saturada";
                 Answer4.text = "Todas las anteriores"; // Correct
@@ -849,12 +849,12 @@ public class QuizManager : MonoBehaviour
             if (CurrentQuestion == 5)
             {
                 QuestionText.text = AlignmentText(
-                    "Entre las diferentes variantes de LCD, cual de las siguientes no hace parte de este tipo de tecnologia de pantalla?"
+                    "¿Entre las diferentes variantes de LCD, cuál de las siguientes no hace parte de este tipo de tecnología de pantalla?"
                 );
                 QuestionImage.color = new Color(255, 255, 255, 255);
                 QuestionImage.sprite = Module2Question5Image;
                 Answer1.text = "LOL (Line Organic Layer), resalte de colores y fidelidad"; // Correct
-                Answer2.text = "LED (Light-Emitting Diode). La mayoria de pantallas en LCD son LED";
+                Answer2.text = "LED (Light-Emitting Diode). La mayoría de pantallas en LCD son LED";
                 Answer3.text = "IPS (In-Plane Switching). Es una pantalla LED modificada";
                 Answer4.text = "TFT (Thin- Film Transistor). Las anteriores se basan en esta";
             }
@@ -862,21 +862,21 @@ public class QuizManager : MonoBehaviour
             if (CurrentQuestion == 6)
             {
                 QuestionText.text = AlignmentText(
-                    "El bloque optico y el sensor son los dos elementos de la camara que determinan su calidad, entonces a mayor tamano de sensor y de optica conseguiremos una mayor calidad en la camara del dispositivo movil?"
+                    "¿El bloque óptico y el sensor son los dos elementos de la cámara que determinan su calidad, entonces a mayor tamaño de sensor y de óptica conseguiremos una mayor calidad en la cámara del dispositivo móvil?"
                 );
                 QuestionImage.color = new Color(255, 255, 255, 255);
                 QuestionImage.sprite = Module2Question6Image;
-                Answer1.text = "No, se trata solo de megapixeles";
-                Answer2.text = "Si, entre mayor luz absorba mejor sera la foto";
+                Answer1.text = "No, se trata solo de megapíxeles";
+                Answer2.text = "Si, entre mayor luz absorba mejor será la foto";
                 Answer3.text = "No, solo importa el software de post-procesado de la imagen";
-                Answer4.text = "Si, pero hay que tener en cuenta caracteristicas adicionales"; // Correct
+                Answer4.text = "Si, pero hay que tener en cuenta características adicionales"; // Correct
             }
             if (CurrentQuestion == 7)
             {
                 Option1.SetActive(false);
                 Option2.SetActive(false);
                 QuestionText.text = AlignmentText(
-                    "Se puede afirmar que, 'El GPS es un sistema de posicionamiento global, que permite determinar la posicion de geolocalizacion de alguien'"
+                    "Se puede afirmar que, 'El GPS es un sistema de posicionamiento global, que permite determinar la posición de geolocalización de alguien'"
                 );
                 Answer3.text = "Verdadero"; //Correct
                 Answer4.text = "Falso";
@@ -885,18 +885,18 @@ public class QuizManager : MonoBehaviour
             if (CurrentQuestion == 8)
             {
                 QuestionText.text = AlignmentText(
-                    "El giroscopio es un instrumento que sirve de orientacion y nos permite conocer la direccion del smartphone en relacion a los polos magneticos de la tierra o al norte geografico. La definicion es correcta?"
+                    "El giroscopio es un instrumento que sirve de orientación y nos permite conocer la dirección del smartphone en relación a los polos magnéticos de la tierra o al norte geográfico. ¿La definición es correcta?"
                 );
-                Answer1.text = "La definicion corresponde a 'Brujula digital'"; // Correct
-                Answer2.text = "La definicion corresponde a 'Sensor de proximidad'";
-                Answer3.text = "La definicion corresponde a 'Acelerometro'";
+                Answer1.text = "La definición corresponde a 'Brújula digital'"; // Correct
+                Answer2.text = "La definición corresponde a 'Sensor de proximidad'";
+                Answer3.text = "La definición corresponde a 'Acelerómetro'";
                 Answer4.text = "Es correcto";
             }
 
             if (CurrentQuestion == 9)
             {
                 QuestionText.text = AlignmentText(
-                    "Que tecnologia permite que los filtros de Snapchat e Instagram sean capaces de crear especie de mascara 3D para interpretar los movimientos del usuario, incluso cuando nos movemos o cambiamos de posicion"
+                    "Que tecnología permite que los filtros de Snapchat e Instagram sean capaces de crear especie de máscara 3D para interpretar los movimientos del usuario, incluso cuando nos movemos o cambiamos de posición"
                 );
                 Answer1.text = "Algoritmos de inteligencia artificial";
                 Answer2.text = "Sistema de reconocimiento facial";
@@ -907,11 +907,11 @@ public class QuizManager : MonoBehaviour
             if (CurrentQuestion == 10)
             {
                 QuestionText.text = AlignmentText(
-                    "En dispositivos Android (Sistema operativo de Google) que requerimiento es indispensable para poder utilizar 'Realidad aumentada'?"
+                    "¿En dispositivos Android (Sistema operativo de Google) que requerimiento es indispensable para poder utilizar 'Realidad aumentada'? "
                 );
-                Answer1.text = "Una camara decente";
-                Answer2.text = "Software ARCore y un hardware en especifico"; // Correct
-                Answer3.text = "Sensores como acelerometros y giroscopio";
+                Answer1.text = "Una cámara decente";
+                Answer2.text = "Software ARCore y un hardware en específico"; // Correct
+                Answer3.text = "Sensores como acelerómetros y giroscopio";
                 Answer4.text = "Procesador y GPU lo suficientemente potente";
             }
         }
@@ -932,13 +932,13 @@ public class QuizManager : MonoBehaviour
             if (CurrentQuestion == 1)
             {
                 QuestionText.text = AlignmentText(
-                    "Cual de las siguientes es una regla de seguridad que debes seguir al operar un dron?"
+                    "¿Cuál de las siguientes es una regla de seguridad que debes seguir al operar un dron?"
                 );
                 QuestionImage.color = new Color(255, 255, 255, 255);
                 QuestionImage.sprite = Module3Question1Image;
                 Answer1.text =
-                    "Mantener tu dron por encima de los 100 metros cuando vueles directamente sobre personas";
-                Answer2.text = "Debes poder ver su dron con sus propios ojos en todo momento"; // Correct
+                    "Mantener tu dron por debajo de los 100 metros cuando vueles directamente sobre personas";
+                Answer2.text = "Debes poder ver el dron con tus propios ojos en todo momento"; // Correct
                 Answer3.text =
                     "Si vuelas dos drones al mismo tiempo, debes tener el control de ambos";
                 Answer4.text = "Todo lo anterior";
@@ -947,12 +947,12 @@ public class QuizManager : MonoBehaviour
             if (CurrentQuestion == 2)
             {
                 QuestionText.text = AlignmentText(
-                    "Que hacer si se pierde contacto visual con el dron y no se logra recuperar el mismo?"
+                    "¿Qué hacer si se pierde contacto visual con el dron y no se logra recuperar el mismo?"
                 );
                 Answer1.text =
-                    "Verificar de acuerdo a la planificacion del vuelo donde puede estar dandole indicacion de retorno a base"; // Correct
-                Answer2.text = "Revisar la planificacion del vuelo y rezar para poder encontrarlo";
-                Answer3.text = "Nada, buscar a ver donde puede haber caido";
+                    "Verificar de acuerdo a la planificación del vuelo donde puede estar dándole indicación de retorno a base"; // Correct
+                Answer2.text = "Revisar la planificación del vuelo y rezar para poder encontrarlo";
+                Answer3.text = "Nada, buscar a ver dónde puede haber caído";
                 Answer4.text = "Ninguna de las anteriores";
             }
 
@@ -963,31 +963,31 @@ public class QuizManager : MonoBehaviour
                 );
                 QuestionImage.color = new Color(255, 255, 255, 255);
                 QuestionImage.sprite = Module3Question3Image;
-                Answer1.text = "El cerebro tiene una menor capacidad de asimilar informacion";
-                Answer2.text = "El cerebro tiene una mayor capacidad de asimilar informacion"; // Correct
+                Answer1.text = "El cerebro tiene una menor capacidad de asimilar información";
+                Answer2.text = "El cerebro tiene una mayor capacidad de asimilar información"; // Correct
                 Answer3.text =
-                    "El cerebro no tiene contacto con la capacidad de asimilar informacion";
+                    "El cerebro no tiene contacto con la capacidad de asimilar información";
                 Answer4.text = "Ninguna de las anteriores";
             }
 
             if (CurrentQuestion == 4)
             {
                 QuestionText.text = AlignmentText(
-                    "Cuales son las partes fundamentales por las que esta compuesto un robot, para que pueda realizar procesos industriales"
+                    "Cuáles son las partes fundamentales por las que está compuesto un robot, para que pueda realizar procesos industriales"
                 );
-                Answer1.text = "Electronica, Motores, Programacion, Energia, Mecanica"; // Correct
-                Answer2.text = "Robotica y Programacion";
-                Answer3.text = "Electromecanica, Motores, Programacion, Energia, Quimica";
-                Answer4.text = "Motores, Programacion, Energia";
+                Answer1.text = "Electrónica, Motores, Programación, Energía, Mecánica"; // Correct
+                Answer2.text = "Robótica y Programación";
+                Answer3.text = "Electromecánica, Motores, Programación, Energía, Química";
+                Answer4.text = "Motores, Programación, Energía";
             }
 
             if (CurrentQuestion == 5)
             {
                 QuestionText.text = AlignmentText(
-                    "El proceso de  _____  en un robot consiste en introducir en su sistema de control las instrucciones necesarias para que desempene las tareas para las que ha sido disenados"
+                    "El proceso de _____ en un robot consiste en introducir en su sistema de control las instrucciones necesarias para que desempeñe las tareas para las que ha sido diseñado"
                 );
-                Answer1.text = "Diseno";
-                Answer2.text = "Programacion"; // Correct
+                Answer1.text = "Diseño";
+                Answer2.text = "Programación"; // Correct
                 Answer3.text = "Aprendizaje";
                 Answer4.text = "Ensamble";
             }
@@ -999,7 +999,7 @@ public class QuizManager : MonoBehaviour
                 Answer2.text = "Conquistar el mundo y predecir el futuro";
                 Answer3.text = "Emular la forma en que el ser humano predice y toma decisiones"; // Correct
                 Answer4.text =
-                    "Crear seres superiores a los humanos que tomen decisiones mas acertadas";
+                    "Crear seres superiores a los humanos que tomen decisiones más acertadas";
             }
 
             if (CurrentQuestion == 7)
@@ -1016,33 +1016,33 @@ public class QuizManager : MonoBehaviour
             if (CurrentQuestion == 8)
             {
                 QuestionText.text = AlignmentText(
-                    "En el proceso de aprendizaje (learning) del agente hay tres elementos que se requieren. Cuales son?"
+                    "En el proceso de aprendizaje (learning) del agente hay tres elementos que se requieren. ¿Cuáles son?"
                 );
                 Answer1.text = "Entrada - Modelo de Entrenamiento - Salida"; // Correct
-                Answer2.text = "Informacion - Proceso - Resultado";
+                Answer2.text = "Información - Proceso - Resultado";
                 Answer3.text = "Entrada - Proceso - Salida";
-                Answer4.text = "Entrada - Retroalimentacion - Proceso";
+                Answer4.text = "Entrada - Retroalimentación - Proceso";
             }
             if (CurrentQuestion == 9)
             {
                 QuestionText.text = AlignmentText(
-                    "La red inteligente gestiona la demanda de electricidad de forma sostenible, fiable y economica, basada en una infraestructura avanzada, con una interconexion de"
+                    "La red inteligente gestiona la demanda de electricidad de forma sostenible, fiable y económica, basada en una infraestructura avanzada, con una interconexión de"
                 );
                 QuestionImage.color = new Color(255, 255, 255, 255);
                 QuestionImage.sprite = Module3Question9Image;
-                Answer1.text = "Energia y TI";
-                Answer2.text = "Energia, TI y comunicacion";
-                Answer3.text = "TI y comunicacion";
-                Answer4.text = "Energia y mecatronica"; // Correct
+                Answer1.text = "Energía y TI";
+                Answer2.text = "Energía, TI y Comunicación";
+                Answer3.text = "TI y Comunicación";
+                Answer4.text = "Energía y Mecatrónica"; // Correct
             }
 
             if (CurrentQuestion == 10)
             {
                 QuestionText.text = AlignmentText(
-                    "Los coches autonomos prometen revolucionar el sistema de movilidad urbana a nivel mundial, que beneficio se espera de estos vehiculos en la actualidad?"
+                    "Los coches autónomos prometen revolucionar el sistema de movilidad urbana a nivel mundial, ¿qué beneficio se espera de estos vehículos en la actualidad?"
                 );
-                Answer1.text = "Reduccion de los accidentes de trafico";
-                Answer2.text = "Movilidad mas sostenible con el medioambiente";
+                Answer1.text = "Reducción de los accidentes de tráfico";
+                Answer2.text = "Movilidad más sostenible con el medioambiente";
                 Answer3.text = "La primera y segunda son correctas"; // Correct
                 Answer4.text = "Precio elevado";
             }

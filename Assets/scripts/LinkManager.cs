@@ -15,7 +15,7 @@ public class LinkManager : MonoBehaviour
     public void OpenPDF()
     {
         Application.OpenURL(
-            "https://drive.google.com/file/d/1IjoqIqIuVw3FtulQgX-heB7JrbooNQHw/view?usp=sharing"
+            "https://drive.google.com/file/d/1momjIf9Gj1XOmE-x1fCgmcUxjAKx9pNC/view?usp=sharing"
         );
     }
 }

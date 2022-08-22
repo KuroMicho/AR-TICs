@@ -40,7 +40,7 @@ public class VoiceInputBehaviour : MonoBehaviour
                 switch (Point)
                 {
                     case "MIC":
-                        StartRecording();
+                        ToggleRecording();
                         break;
                     default:
                         break;
@@ -49,18 +49,18 @@ public class VoiceInputBehaviour : MonoBehaviour
         }
     }
 
-    private void StartRecording()
+    private void ToggleRecording()
     {
         if (Recording)
         {
-            MicRenderer.sprite = RecordingSprite;
+            MicRenderer.sprite = MicSprite;
             Recording = false;
         }
         else
         {
             int clip = Mathf.RoundToInt(Random.Range(0, 3));
             Listener.PlayOneShot(ListeningSounds[clip]);
-            MicRenderer.sprite = MicSprite;
+            MicRenderer.sprite = RecordingSprite;
             Recording = true;
         }
     }

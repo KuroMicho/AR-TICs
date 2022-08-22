@@ -19,9 +19,9 @@ public class ModelAnimController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began)
         {
-            Ray RayTouch = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Ray RayTouch = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
             RaycastHit Hit;
 
             if (Physics.Raycast(RayTouch, out Hit))
