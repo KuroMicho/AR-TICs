@@ -31,7 +31,7 @@ public class ModelPointController : MonoBehaviour
 
                 switch (Point)
                 {
-                    // COMPUTACION
+                    // Computacion
                     case "CPU1":
                         Desc.text = "Procesador AMD Ryzen Threadripper 3990X";
                         PopupShow();
@@ -41,7 +41,7 @@ public class ModelPointController : MonoBehaviour
                         PopupShow();
                         break;
                     case "CPU3":
-                        Desc.text = "IHS (Placa de cobre que protege el nucleo)";
+                        Desc.text = "IHS (Placa de cobre que protege el núcleo)";
                         PopupShow();
                         break;
 
@@ -59,12 +59,12 @@ public class ModelPointController : MonoBehaviour
                         PopupShow();
                         break;
                     case "SSD3":
-                        Desc.text = "Conector de alimentacion";
+                        Desc.text = "Conector de alimentación";
                         PopupShow();
                         break;
 
                     case "M21":
-                        Desc.text = "Samsug M.2 970 EVO NVMe 500GB Dimension 2280";
+                        Desc.text = "Samsug M.2 970 EVO NVMe 500GB Dimensión 2280";
                         PopupShow();
                         break;
                     case "M22":
@@ -94,7 +94,7 @@ public class ModelPointController : MonoBehaviour
                         PopupShow();
                         break;
                     case "MB6":
-                        Desc.text = "Entrada ATX de alimentacion";
+                        Desc.text = "Entrada ATX de alimentación";
                         PopupShow();
                         break;
                     case "MB7":
@@ -166,56 +166,36 @@ public class ModelPointController : MonoBehaviour
                         break;
                     case "LP7":
                         Desc.text =
-                            "Brillante pantalla Retina de 13.3 pulgadas con Tecnologia True Tone (1)";
+                            "Brillante pantalla Retina de 13.3 pulgadas con Tecnología True Tone (1)";
                         PopupShow();
                         break;
 
                     // Movil
 
-                    case "SG1":
-                        Desc.text = "Sensor optico de huellas dactilares";
+                    case "IP1":
+                        Desc.text = "Apple Iphone 14 Pro Max";
                         PopupShow();
                         break;
 
-                    case "SG2":
-                        Desc.text = "Sensor de luz";
+                    case "IP2":
+                        Desc.text = "Chip A16 Bionic";
                         PopupShow();
                         break;
 
-                    case "SG3":
-                        Desc.text = "Sensor de proximidad";
-                        PopupShow();
-                        break;
-
-                    case "SG4":
+                    case "IP3":
                         Desc.text =
-                            "Camara trasera de 48MP, 12MP, 5MP de profundidad, Macro de 5MP";
+                            "Pantalla de 6.7 pulgadas, Retina XDR OLED, 1290 x 2796 pixeles, 24 bit";
                         PopupShow();
                         break;
 
-                    case "SG5":
-                        Desc.text = "Camara frontal 32MP";
-                        PopupShow();
-                        break;
-
-                    case "SG6":
-                        Desc.text = "Bateria Li-ionde 4000 mAh";
-                        PopupShow();
-                        break;
-
-                    case "SG7":
-                        Desc.text = "Pantalla Infinity-O sAMOLED";
-                        PopupShow();
-                        break;
-
-                    case "SG8":
+                    case "IP4":
                         Desc.text =
-                            "Memoria Micron MT53D1024M32D4BD-046 LPDDR4 que cubre el Exynos 9611, CPU de 8 nucleos con GPU MP3 Mali-G72";
+                            "Triple cámara, 48MP principal, 12MP ultra gran angular, 12MP teleobjetivo, TOF 3D LiDAR scanner, 60 fps";
                         PopupShow();
                         break;
 
-                    case "SG9":
-                        Desc.text = "Almacenamiento flash KLUDG4U1EA-B0C1 128GB UFS 2.1";
+                    case "IP5":
+                        Desc.text = "Cámara Selfie 12 MP, HDR, 4K, 60 fps";
                         PopupShow();
                         break;
 
@@ -226,11 +206,11 @@ public class ModelPointController : MonoBehaviour
                         PopupShow();
                         break;
                     case "DR2":
-                        Desc.text = "Helice";
+                        Desc.text = "Hélice";
                         PopupShow();
                         break;
                     case "DR3":
-                        Desc.text = "Camara";
+                        Desc.text = "Cámara";
                         PopupShow();
                         break;
                     case "DR4":
@@ -251,7 +231,7 @@ public class ModelPointController : MonoBehaviour
                         PopupShow();
                         break;
                     case "ROB2":
-                        Desc.text = "Muneca";
+                        Desc.text = "Muñeca";
                         PopupShow();
                         break;
                     case "ROB3":
@@ -300,7 +280,7 @@ public class ModelPointController : MonoBehaviour
                         PopupShow();
                         break;
                     case "VR5":
-                        Desc.text = "Pentile AMOLED con una resolucion de 2160 x 1200 pixeles";
+                        Desc.text = "Pentile AMOLED con una resolución de 2160 x 1200 pixeles";
                         PopupShow();
                         break;
                     case "VR6":
@@ -308,22 +288,22 @@ public class ModelPointController : MonoBehaviour
                         PopupShow();
                         break;
                     case "VR7":
-                        Desc.text = "Solucion de audio integrado 3D";
+                        Desc.text = "Solución de audio integrado 3D";
                         PopupShow();
                         break;
 
                     case "CA1":
-                        Desc.text = "Tesla Model 3 2018: automovil electrico sedan de cinco plazas";
+                        Desc.text = "Tesla Model 3 2018: Automóvil eléctrico sedan de cinco plazas";
                         PopupShow();
                         break;
                     case "CA2":
                         Desc.text =
-                            "Radio Detección y Alcance (RADAR): Envio de ondas de radio que rebotan en superficies distantes";
+                            "Radio Detección y Alcance (RADAR): Ondas de radio que rebotan en superficies distantes";
                         PopupShow();
                         break;
                     case "CA3":
                         Desc.text =
-                            "Camaras: Usadas para ver en alta resolucion, y leer senales o marcas viales";
+                            "Cámaras: Usadas para ver en alta resolución, y leer señales o marcas viales";
                         PopupShow();
                         break;
 
@@ -332,7 +312,7 @@ public class ModelPointController : MonoBehaviour
                         PopupShow();
                         break;
                     case "AS2":
-                        Desc.text = "Plastico de policarbonato (PC)";
+                        Desc.text = "Plástico de policarbonato (PC)";
                         PopupShow();
                         break;
                     case "AS3":
@@ -340,24 +320,24 @@ public class ModelPointController : MonoBehaviour
                         PopupShow();
                         break;
                     case "AS4":
-                        Desc.text = "Boton de accion";
+                        Desc.text = "Botón de acción";
                         PopupShow();
                         break;
                     case "AS5":
-                        Desc.text = "Boton de microfono";
+                        Desc.text = "Botón de micrófono";
                         PopupShow();
                         break;
                     case "AS6":
-                        Desc.text = "Boton de subir volumen";
+                        Desc.text = "Botón de subir volumen";
                         PopupShow();
                         break;
                     case "AS7":
-                        Desc.text = "Boton de bajar volumen";
+                        Desc.text = "Botón de bajar volumen";
                         PopupShow();
                         break;
 
                     case "EOL1":
-                        Desc.text = "Gondola";
+                        Desc.text = "Góndola";
                         PopupShow();
                         break;
                     case "EOL2":

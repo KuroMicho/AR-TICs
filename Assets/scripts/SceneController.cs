@@ -63,4 +63,17 @@ public class SceneController : MonoBehaviour
         yield return new WaitForSeconds(1f);
         SceneManager.LoadScene("QuizScene");
     }
+
+    public void OpenPreviousScene()
+    {
+        StartCoroutine(LoadPreviousScene());
+    }
+
+    IEnumerator LoadPreviousScene()
+    {
+        AudioFade.SetTrigger("Start");
+        GetComponent<Animator>().SetTrigger("Start");
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene("ModulesScene");
+    }
 }

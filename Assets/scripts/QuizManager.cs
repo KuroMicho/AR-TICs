@@ -28,6 +28,9 @@ public class QuizManager : MonoBehaviour
     private TMP_Text HighScoreText;
 
     [SerializeField]
+    private TMP_Text TimeScoreText;
+
+    [SerializeField]
     private TMP_Text Answer1;
 
     [SerializeField]
@@ -205,6 +208,14 @@ public class QuizManager : MonoBehaviour
         }
     }
 
+    public void Exit()
+    {
+        CounterIsRunning = false;
+        IsFinished = true;
+        CounterSound.Stop();
+        AudioManager.Stop();
+    }
+
     IEnumerator GameOver()
     {
         Panel.SetActive(true);
@@ -214,6 +225,7 @@ public class QuizManager : MonoBehaviour
         CounterSound.Stop();
         AudioManager.Stop();
         ScoreText.text = $"{Score}";
+        TimeScoreText.text = $"{TimePass} Segundos";
 
         if (ModuleManager.IsModule1)
         {
@@ -1056,14 +1068,14 @@ public class QuizManager : MonoBehaviour
 
     void LoadModule1()
     {
-        HeaderText.text = "Computacion";
+        HeaderText.text = "Computación";
         StartCoroutine(LoadQuestions1());
         StopCoroutine(LoadQuestions1());
     }
 
     void LoadModule2()
     {
-        HeaderText.text = "Movil";
+        HeaderText.text = "Móvil";
         StartCoroutine(LoadQuestions2());
         StopCoroutine(LoadQuestions2());
     }
