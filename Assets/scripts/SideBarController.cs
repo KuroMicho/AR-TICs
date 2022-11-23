@@ -60,11 +60,16 @@ public class SideBarController : MonoBehaviour
 
     public void SideBarOpen()
     {
-        SideBarRect.DOAnchorPosX(-50, 0.5F).SetEase(Ease.OutBack);
+        SideBarRect.DOAnchorPosX(-50, 0.5f).SetEase(Ease.OutBack);
     }
 
     public void SideBarClose()
     {
-        SideBarRect.anchoredPosition = new Vector2(0, 50);
+        SideBarRect.DOAnchorPosX(50, 0.5f).SetEase(Ease.OutBack);
+    }
+
+    private void OnDestroy()
+    {
+        DOTween.KillAll();
     }
 }

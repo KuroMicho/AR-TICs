@@ -14,4 +14,9 @@ public class TextAnimBehaviour : MonoBehaviour
             .SetEase(Ease.InOutBack)
             .SetLoops(4, LoopType.Yoyo);
     }
+
+    private void OnDestroy()
+    {
+        DOTween.KillAll();
+    }
 }

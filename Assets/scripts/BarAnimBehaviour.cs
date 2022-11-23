@@ -1,10 +1,37 @@
 using UnityEngine;
 using DG.Tweening;
+using Vuforia;
 
 public class BarAnimBehaviour : MonoBehaviour
 {
     [SerializeField]
     private RectTransform BarRect;
+
+    [SerializeField]
+    private GameObject VideoPlayer;
+
+    private bool TargetFound = false;
+
+    private void Update()
+    {
+        if (VideoPlayer.activeInHierarchy)
+        {
+            BarClose();
+        }
+
+        if (!VideoPlayer.activeInHierarchy && TargetFound)
+        {
+            BarOpen();
+        }
+    }
+
+    public void IsTrackingMarker(ImageTargetBehaviour ImageTarget)
+    {
+        if (ImageTarget != null)
+        {
+            TargetFound = ImageTarget.TargetStatus.Status == Status.TRACKED;
+        }
+    }
 
     public void BarOpen()
     {
@@ -13,6 +40,11 @@ public class BarAnimBehaviour : MonoBehaviour
 
     public void BarClose()
     {
-        BarRect.anchoredPosition = new Vector2(125f, -60);
+        BarRect.DOAnchorPosY(-60, 0.6f).SetEase(Ease.OutBack);
+    }
+
+    private void OnDestroy()
+    {
+        DOTween.KillAll();
     }
 }

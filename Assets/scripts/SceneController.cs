@@ -7,9 +7,11 @@ public class SceneController : MonoBehaviour
     [SerializeField]
     private Animator AudioFade;
 
+    public static bool HelpShowed = false;
+
     private void Awake()
     {
-        Application.targetFrameRate = 30;
+        Application.targetFrameRate = 60;
     }
 
     public void OpenARScene()

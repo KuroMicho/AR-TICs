@@ -32,20 +32,26 @@ namespace YoutubePlayer
         [SerializeField]
         private Button BtnReset;
 
+        [SerializeField]
+        private GameObject HelpButton;
+
+        [SerializeField]
+        private GameObject ARTarget;
+
         private bool isPlaying = false;
 
         public void PlayAndPauseVideo()
         {
             if (!isPlaying)
             {
-                GlobalMusic.Stop();
+                GlobalMusic.Pause();
                 vPlayer.Play();
                 BtnPlayAndPause.GetComponent<Image>().sprite = Img[1];
                 isPlaying = true;
             }
             else
             {
-                GlobalMusic.Stop();
+                GlobalMusic.Pause();
                 vPlayer.Pause();
                 BtnPlayAndPause.GetComponent<Image>().sprite = Img[0];
                 isPlaying = false;
@@ -73,6 +79,10 @@ namespace YoutubePlayer
             {
                 Spinner.SetActive(false);
             }
+
+            bool isShowed = transform.parent.GetChild(1).gameObject.activeInHierarchy;
+            HelpButton.SetActive(!isShowed);
+            ARTarget.SetActive(!isShowed);
         }
 
         private void VideoPlayerPreparedCompleted(VideoPlayer source)
@@ -87,7 +97,7 @@ namespace YoutubePlayer
             isPlaying = false;
             DisableButtons();
             transform.parent.GetChild(1).gameObject.SetActive(false);
-            GlobalMusic.PlayDelayed(0.2f);
+            GlobalMusic.UnPause();
         }
 
         private void CloseAlert()
@@ -106,7 +116,7 @@ namespace YoutubePlayer
             catch
             {
                 Alert.SetActive(true);
-                Invoke("CloseAlert", 5f);
+                Invoke("CloseAlert", 4);
             }
         }
 

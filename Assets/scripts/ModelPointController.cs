@@ -345,14 +345,10 @@ public class ModelPointController : MonoBehaviour
                         PopupShow();
                         break;
                     case "EOL3":
-                        Desc.text = "Centro";
-                        PopupShow();
-                        break;
-                    case "EOL4":
                         Desc.text = "Aspa";
                         PopupShow();
                         break;
-                    case "EOL5":
+                    case "EOL4":
                         Desc.text = "Torre";
                         PopupShow();
                         break;

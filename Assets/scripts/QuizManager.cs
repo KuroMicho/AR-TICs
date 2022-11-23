@@ -134,6 +134,7 @@ public class QuizManager : MonoBehaviour
     private int Score = 0;
     private int TimePass = 0;
     private int Strike = 0;
+    private int Attempt = 0;
 
     private int HighScore1 = 0;
     private int BestTime1 = 0;
@@ -229,6 +230,10 @@ public class QuizManager : MonoBehaviour
 
         if (ModuleManager.IsModule1)
         {
+            Attempt = PlayerPrefs.GetInt("Attempts1", 0);
+            Attempt++;
+            PlayerPrefs.SetInt("Attempts1", Attempt);
+
             if (Score > HighScore1)
             {
                 Notification = Mathf.RoundToInt(Random.Range(0, 3));
@@ -254,6 +259,10 @@ public class QuizManager : MonoBehaviour
 
         if (ModuleManager.IsModule2)
         {
+            Attempt = PlayerPrefs.GetInt("Attempts2", 0);
+            Attempt++;
+            PlayerPrefs.SetInt("Attempts2", Attempt);
+
             if (Score > HighScore2)
             {
                 Notification = Mathf.RoundToInt(Random.Range(0, 3));
@@ -279,6 +288,10 @@ public class QuizManager : MonoBehaviour
 
         if (ModuleManager.IsModule3)
         {
+            Attempt = PlayerPrefs.GetInt("Attempts3", 0);
+            Attempt++;
+            PlayerPrefs.SetInt("Attempts3", Attempt);
+
             if (Score > HighScore3)
             {
                 Notification = Mathf.RoundToInt(Random.Range(0, 3));

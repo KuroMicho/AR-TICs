@@ -9,7 +9,7 @@ public class LinkManager : MonoBehaviour
 
     public void OpenFacebook()
     {
-        Application.OpenURL("https://facebook.com");
+        Application.OpenURL("https://facebook.com/profile.php?id=100088083484663");
     }
 
     public void OpenPDF()

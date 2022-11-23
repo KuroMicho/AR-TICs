@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
+    <ImageTarget name="Laptop" size="6.000000 6.000000" />
+    <ImageTarget name="Drone" size="6.000000 6.000000" />
+    <ImageTarget name="Assistent" size="6.000000 6.000000" />
+    <ImageTarget name="SmartGrid" size="6.000000 6.000000" />
+    <ImageTarget name="Robot" size="6.000000 6.000000" />
+    <ImageTarget name="Car" size="6.000000 6.000000" />
     <ImageTarget name="Smartphone" size="6.000000 6.000000" />
     <ImageTarget name="VRHeadset" size="6.000000 6.000000" />
     <ImageTarget name="M2" size="6.000000 6.000000" />

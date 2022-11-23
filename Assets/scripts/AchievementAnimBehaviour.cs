@@ -8,6 +8,11 @@ public class AchievementAnimBehaviour : MonoBehaviour
     public void MoveText()
     {
         TextRect = GetComponent<RectTransform>();
-        TextRect.DOAnchorPosX(-200, 1).SetEase(Ease.OutBack);
+        TextRect.DOAnchorPosX(-160, 1).SetEase(Ease.OutBack);
+    }
+
+    private void OnDestroy()
+    {
+        DOTween.KillAll();
     }
 }

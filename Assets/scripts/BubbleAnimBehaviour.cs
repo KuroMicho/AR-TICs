@@ -25,4 +25,9 @@ public class BubbleAnimBehaviour : MonoBehaviour
         BubbleText.DOFade(0, 0.5f).SetDelay(0.5f);
         BubbleRect.DOAnchorPosY(0, 0.5f).SetEase(Ease.OutBack).SetDelay(0.5f);
     }
+
+    private void OnDestroy()
+    {
+        DOTween.KillAll();
+    }
 }
